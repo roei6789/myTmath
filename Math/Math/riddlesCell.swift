@@ -10,7 +10,6 @@ import UIKit
 
 class riddlesCell: UITableViewCell {
     @IBOutlet weak var numberLable: UILabel!
-    
     @IBOutlet weak var checkIMG: UIImageView!
    
     

@@ -15,13 +15,13 @@
 		8025066020385940009E6355 /* MathUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8025065F20385940009E6355 /* MathUITests.swift */; };
 		8025066E20385A3F009E6355 /* worldsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8025066D20385A3F009E6355 /* worldsCollectionViewCell.swift */; };
 		802506702038609A009E6355 /* WorldsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8025066F2038609A009E6355 /* WorldsVC.swift */; };
-		80278CF6204EFADB00ECBE6A /* WorldsCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80278CF5204EFADB00ECBE6A /* WorldsCollectionViewCell2.swift */; };
-		80278CF8204EFC3A00ECBE6A /* worldsVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80278CF7204EFC3A00ECBE6A /* worldsVC2.swift */; };
-		8068494620388D4800BD0482 /* riddlesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068494520388D4800BD0482 /* riddlesListVC.swift */; };
+		80278CF6204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80278CF5204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift */; };
 		8068494820388FF400BD0482 /* riddleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068494720388FF400BD0482 /* riddleVC.swift */; };
 		8068494A2038933C00BD0482 /* riddlesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806849492038933C00BD0482 /* riddlesCell.swift */; };
 		80A6C7782046F3E0007EF44E /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A6C7772046F3E0007EF44E /* HomePageVC.swift */; };
 		80AE0297204AFA9D0025754F /* HomaPageVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE0296204AFA9D0025754F /* HomaPageVC2.swift */; };
+		80D4468B2052B77E000B264B /* SettingsPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4468A2052B77E000B264B /* SettingsPopupVC.swift */; };
+		80D4468D2052C186000B264B /* riddlesListVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4468C2052C186000B264B /* riddlesListVC2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,13 +56,13 @@
 		8025066120385940009E6355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8025066D20385A3F009E6355 /* worldsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldsCollectionViewCell.swift; sourceTree = "<group>"; };
 		8025066F2038609A009E6355 /* WorldsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldsVC.swift; sourceTree = "<group>"; };
-		80278CF5204EFADB00ECBE6A /* WorldsCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldsCollectionViewCell2.swift; sourceTree = "<group>"; };
-		80278CF7204EFC3A00ECBE6A /* worldsVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldsVC2.swift; sourceTree = "<group>"; };
-		8068494520388D4800BD0482 /* riddlesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddlesListVC.swift; sourceTree = "<group>"; };
+		80278CF5204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddlesCollectionViewCell2.swift; sourceTree = "<group>"; };
 		8068494720388FF400BD0482 /* riddleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddleVC.swift; sourceTree = "<group>"; };
 		806849492038933C00BD0482 /* riddlesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddlesCell.swift; sourceTree = "<group>"; };
 		80A6C7772046F3E0007EF44E /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
 		80AE0296204AFA9D0025754F /* HomaPageVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomaPageVC2.swift; sourceTree = "<group>"; };
+		80D4468A2052B77E000B264B /* SettingsPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopupVC.swift; sourceTree = "<group>"; };
+		80D4468C2052C186000B264B /* riddlesListVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddlesListVC2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,13 +120,14 @@
 				8025064B20385940009E6355 /* Info.plist */,
 				8025066D20385A3F009E6355 /* worldsCollectionViewCell.swift */,
 				8025066F2038609A009E6355 /* WorldsVC.swift */,
-				8068494520388D4800BD0482 /* riddlesListVC.swift */,
+				80D4468E2052C25D000B264B /* New Group */,
 				8068494720388FF400BD0482 /* riddleVC.swift */,
 				806849492038933C00BD0482 /* riddlesCell.swift */,
 				80A6C7772046F3E0007EF44E /* HomePageVC.swift */,
 				80AE0296204AFA9D0025754F /* HomaPageVC2.swift */,
-				80278CF5204EFADB00ECBE6A /* WorldsCollectionViewCell2.swift */,
-				80278CF7204EFC3A00ECBE6A /* worldsVC2.swift */,
+				80278CF5204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift */,
+				80D4468A2052B77E000B264B /* SettingsPopupVC.swift */,
+				80D4468C2052C186000B264B /* riddlesListVC2.swift */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -147,6 +148,13 @@
 				8025066120385940009E6355 /* Info.plist */,
 			);
 			path = MathUITests;
+			sourceTree = "<group>";
+		};
+		80D4468E2052C25D000B264B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,13 +293,13 @@
 			files = (
 				802506702038609A009E6355 /* WorldsVC.swift in Sources */,
 				80AE0297204AFA9D0025754F /* HomaPageVC2.swift in Sources */,
-				80278CF8204EFC3A00ECBE6A /* worldsVC2.swift in Sources */,
+				80D4468B2052B77E000B264B /* SettingsPopupVC.swift in Sources */,
 				8025066E20385A3F009E6355 /* worldsCollectionViewCell.swift in Sources */,
-				8068494620388D4800BD0482 /* riddlesListVC.swift in Sources */,
 				8068494820388FF400BD0482 /* riddleVC.swift in Sources */,
 				80A6C7782046F3E0007EF44E /* HomePageVC.swift in Sources */,
 				8025064020385940009E6355 /* AppDelegate.swift in Sources */,
-				80278CF6204EFADB00ECBE6A /* WorldsCollectionViewCell2.swift in Sources */,
+				80D4468D2052C186000B264B /* riddlesListVC2.swift in Sources */,
+				80278CF6204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift in Sources */,
 				8068494A2038933C00BD0482 /* riddlesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
