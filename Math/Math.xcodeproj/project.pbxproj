@@ -19,7 +19,16 @@
 		8068494820388FF400BD0482 /* riddleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068494720388FF400BD0482 /* riddleVC.swift */; };
 		8068494A2038933C00BD0482 /* riddlesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806849492038933C00BD0482 /* riddlesCell.swift */; };
 		80A6C7782046F3E0007EF44E /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A6C7772046F3E0007EF44E /* HomePageVC.swift */; };
+		80ABBD382067EB3500CFC945 /* geometricQ_json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD372067EB3500CFC945 /* geometricQ_json.swift */; };
+		80ABBD482068224E00CFC945 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD422068224E00CFC945 /* Question.swift */; };
+		80ABBD492068224E00CFC945 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD432068224E00CFC945 /* User.swift */; };
+		80ABBD4A2068224E00CFC945 /* Question_Thinks_solve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD442068224E00CFC945 /* Question_Thinks_solve.swift */; };
+		80ABBD4B2068224E00CFC945 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD452068224E00CFC945 /* Game.swift */; };
+		80ABBD4C2068224E00CFC945 /* Question_Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD462068224E00CFC945 /* Question_Geometry.swift */; };
+		80ABBD4D2068224E00CFC945 /* Worlds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD472068224E00CFC945 /* Worlds.swift */; };
 		80AE0297204AFA9D0025754F /* HomaPageVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE0296204AFA9D0025754F /* HomaPageVC2.swift */; };
+		80C7413320711BA9001A7C93 /* ThinkNSolve_2_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7413220711BA8001A7C93 /* ThinkNSolve_2_VC.swift */; };
+		80C7413620716A54001A7C93 /* ThinkNSolve_1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */; };
 		80D4468B2052B77E000B264B /* SettingsPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4468A2052B77E000B264B /* SettingsPopupVC.swift */; };
 		80D4468D2052C186000B264B /* riddlesListVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4468C2052C186000B264B /* riddlesListVC2.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +69,16 @@
 		8068494720388FF400BD0482 /* riddleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddleVC.swift; sourceTree = "<group>"; };
 		806849492038933C00BD0482 /* riddlesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddlesCell.swift; sourceTree = "<group>"; };
 		80A6C7772046F3E0007EF44E /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
+		80ABBD372067EB3500CFC945 /* geometricQ_json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geometricQ_json.swift; sourceTree = "<group>"; };
+		80ABBD422068224E00CFC945 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		80ABBD432068224E00CFC945 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		80ABBD442068224E00CFC945 /* Question_Thinks_solve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question_Thinks_solve.swift; sourceTree = "<group>"; };
+		80ABBD452068224E00CFC945 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		80ABBD462068224E00CFC945 /* Question_Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question_Geometry.swift; sourceTree = "<group>"; };
+		80ABBD472068224E00CFC945 /* Worlds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worlds.swift; sourceTree = "<group>"; };
 		80AE0296204AFA9D0025754F /* HomaPageVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomaPageVC2.swift; sourceTree = "<group>"; };
+		80C7413220711BA8001A7C93 /* ThinkNSolve_2_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkNSolve_2_VC.swift; sourceTree = "<group>"; };
+		80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkNSolve_1VC.swift; sourceTree = "<group>"; };
 		80D4468A2052B77E000B264B /* SettingsPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopupVC.swift; sourceTree = "<group>"; };
 		80D4468C2052C186000B264B /* riddlesListVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddlesListVC2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,20 +132,12 @@
 			isa = PBXGroup;
 			children = (
 				8025063F20385940009E6355 /* AppDelegate.swift */,
-				8025064320385940009E6355 /* Main.storyboard */,
 				8025064620385940009E6355 /* Assets.xcassets */,
 				8025064820385940009E6355 /* LaunchScreen.storyboard */,
 				8025064B20385940009E6355 /* Info.plist */,
-				8025066D20385A3F009E6355 /* worldsCollectionViewCell.swift */,
-				8025066F2038609A009E6355 /* WorldsVC.swift */,
-				80D4468E2052C25D000B264B /* New Group */,
-				8068494720388FF400BD0482 /* riddleVC.swift */,
-				806849492038933C00BD0482 /* riddlesCell.swift */,
-				80A6C7772046F3E0007EF44E /* HomePageVC.swift */,
-				80AE0296204AFA9D0025754F /* HomaPageVC2.swift */,
-				80278CF5204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift */,
-				80D4468A2052B77E000B264B /* SettingsPopupVC.swift */,
-				80D4468C2052C186000B264B /* riddlesListVC2.swift */,
+				80ABBD3D2068204900CFC945 /* logic */,
+				80D4468E2052C25D000B264B /* UI */,
+				80ABBD372067EB3500CFC945 /* geometricQ_json.swift */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -150,11 +160,36 @@
 			path = MathUITests;
 			sourceTree = "<group>";
 		};
-		80D4468E2052C25D000B264B /* New Group */ = {
+		80ABBD3D2068204900CFC945 /* logic */ = {
 			isa = PBXGroup;
 			children = (
+				80ABBD452068224E00CFC945 /* Game.swift */,
+				80ABBD462068224E00CFC945 /* Question_Geometry.swift */,
+				80ABBD442068224E00CFC945 /* Question_Thinks_solve.swift */,
+				80ABBD422068224E00CFC945 /* Question.swift */,
+				80ABBD432068224E00CFC945 /* User.swift */,
+				80ABBD472068224E00CFC945 /* Worlds.swift */,
 			);
-			path = "New Group";
+			path = logic;
+			sourceTree = "<group>";
+		};
+		80D4468E2052C25D000B264B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8025064320385940009E6355 /* Main.storyboard */,
+				8025066D20385A3F009E6355 /* worldsCollectionViewCell.swift */,
+				8025066F2038609A009E6355 /* WorldsVC.swift */,
+				8068494720388FF400BD0482 /* riddleVC.swift */,
+				806849492038933C00BD0482 /* riddlesCell.swift */,
+				80A6C7772046F3E0007EF44E /* HomePageVC.swift */,
+				80AE0296204AFA9D0025754F /* HomaPageVC2.swift */,
+				80278CF5204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift */,
+				80D4468A2052B77E000B264B /* SettingsPopupVC.swift */,
+				80D4468C2052C186000B264B /* riddlesListVC2.swift */,
+				80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */,
+				80C7413220711BA8001A7C93 /* ThinkNSolve_2_VC.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,16 +326,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80ABBD492068224E00CFC945 /* User.swift in Sources */,
+				80ABBD4B2068224E00CFC945 /* Game.swift in Sources */,
 				802506702038609A009E6355 /* WorldsVC.swift in Sources */,
+				80ABBD4A2068224E00CFC945 /* Question_Thinks_solve.swift in Sources */,
 				80AE0297204AFA9D0025754F /* HomaPageVC2.swift in Sources */,
+				80ABBD4C2068224E00CFC945 /* Question_Geometry.swift in Sources */,
 				80D4468B2052B77E000B264B /* SettingsPopupVC.swift in Sources */,
+				80C7413620716A54001A7C93 /* ThinkNSolve_1VC.swift in Sources */,
+				80ABBD4D2068224E00CFC945 /* Worlds.swift in Sources */,
 				8025066E20385A3F009E6355 /* worldsCollectionViewCell.swift in Sources */,
 				8068494820388FF400BD0482 /* riddleVC.swift in Sources */,
 				80A6C7782046F3E0007EF44E /* HomePageVC.swift in Sources */,
 				8025064020385940009E6355 /* AppDelegate.swift in Sources */,
+				80ABBD382067EB3500CFC945 /* geometricQ_json.swift in Sources */,
 				80D4468D2052C186000B264B /* riddlesListVC2.swift in Sources */,
+				80ABBD482068224E00CFC945 /* Question.swift in Sources */,
 				80278CF6204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift in Sources */,
 				8068494A2038933C00BD0482 /* riddlesCell.swift in Sources */,
+				80C7413320711BA9001A7C93 /* ThinkNSolve_2_VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
