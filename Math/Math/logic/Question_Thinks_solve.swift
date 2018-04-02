@@ -12,7 +12,7 @@ class Question_Thinks_solve: Question {
     
    // var Picture:String
     init(Title:String , Number:Int , Explantion:String,
-         Answer_Correct:Int, Attempts:Int,Time_taken:Timer ,Content:String) {
+         Answer_Correct:Int, Attempts:Int ,Content:String) {
         super.init(Title: Title)
         self.Title = Title
         self.Number = Number
