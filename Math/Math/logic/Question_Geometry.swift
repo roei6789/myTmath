@@ -11,18 +11,16 @@
 import Foundation
 
 class Question_Geometry: Question {
-    //var Picture : String
+    var Picture : String
     init(Title:String , Number:Int , Explantion:String,
          Answer_Correct:Int, Attempts:Int, Picture:String) {
+        self.Picture = Picture
         super.init(Title: Title)
-        //super.init(Title: Title)
-        //self.Title = Title
-//        self.Number = Number
-//        self.Explanation = Explantion
-//        self.Answer_Correct = Answer_Correct
-//        self.Attempts = Attempts
-       // self.Picture = Picture
-        //self.Time_taken = Time_taken
+        self.Title = Title
+        self.Number = Number
+        self.Explanation = Explantion
+        self.Answer_Correct = Answer_Correct
+        self.Attempts = Attempts
     }
     
     
