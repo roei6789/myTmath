@@ -39,76 +39,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Math/UI/HomePageVC.swift"
-            timestampString = "544367361.754969"
+            filePath = "Math/UI/riddlesListVC2.swift"
+            timestampString = "544372371.424696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "HomePageVC"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "variable initialization expression of Math.HomePageVC.thisGame : Math.Game"
-                  moduleName = "Math"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/HomePageVC.swift"
-                  timestampString = "544367361.7728879"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Math.HomePageVC.thisGame.getter : Math.Game"
-                  moduleName = "Math"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/HomePageVC.swift"
-                  timestampString = "544367361.774808"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "109">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Math.HomePageVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Math.HomePageVC"
-                  moduleName = "Math"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/HomePageVC.swift"
-                  timestampString = "544367361.776477"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "830">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Math.HomePageVC.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Math.HomePageVC&gt;"
-                  moduleName = "Math"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/HomePageVC.swift"
-                  timestampString = "544367361.778098"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "743">
-               </Location>
-            </Locations>
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -117,13 +55,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Math/logic/Game.swift"
-            timestampString = "544367361.7550761"
+            filePath = "Math/UI/riddlesListVC2.swift"
+            timestampString = "544372371.425056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "initWorlds()"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

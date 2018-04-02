@@ -29,9 +29,9 @@ class Game {
    }//init
     
     func initWorlds (){
-        let world_1 = Worlds.init(ID: 1, Name: "חידות הנדסיות", Array_Questions: build_QG_Array(), picture: "World1.png")
+        let world_1 = Worlds.init(ID: 1, Name: "חידות הנדסיות", Array_Questions: build_QG_Array(), picture: "World1")
         
-         let world_2 = Worlds.init(ID: 2, Name: "חשוב וחשב", Array_Questions: build_QTS_Array(), picture: "World2.png")
+         let world_2 = Worlds.init(ID: 2, Name: "חשוב וחשב", Array_Questions: build_QTS_Array(), picture: "World2")
         
         var thisworlds : [String : Worlds] = ["1" : world_1 ,"2" : world_2]
         currentWorlds = thisworlds

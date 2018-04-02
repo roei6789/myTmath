@@ -10,22 +10,27 @@ import UIKit
 
 class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    //initiolize variables
+    let thisGame = Game.sharedInstance
+    var thisWorldLevels : [ Question] = []
+    static var selectedWorld = 0
+    
     var myIndex = 0
     var riddles = ["1","2","3","4","5","6","7","8","9","10","11"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        //initiolize variables
+        thisWorldLevels = (thisGame.currentWorlds[String(riddlesListVC2.selectedWorld)]?.Array_Questions)!
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return riddles.count
+        return thisWorldLevels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RiddlesCollectionViewCell2", for: indexPath) as! RiddlesCollectionViewCell2
-        cell.nuberLabel.text = riddles[indexPath.row]
+        cell.nuberLabel.text = String(thisWorldLevels[indexPath.row].Number)
         return cell
     }
     
