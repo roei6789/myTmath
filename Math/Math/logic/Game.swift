@@ -263,8 +263,158 @@ class Game {
             Attempts: 0,
             Content: "9x15+16"
         )
+        let QTS_2_11 = Question_Thinks_solve_2.init(
+            Title: "בנה את המספר",
+            Number: 11,
+            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. הוסף סוגריים לפי הצורך" ,
+            Answer_Correct: 1,
+            Attempts: 0,
+            Num_1: "1",
+            Num_2: "2",
+            Num_3: "3",
+            Num_4: "4",
+            operator_1: "x",
+            operator_2: "+",
+            operator_3: "-",
+            firstClose: false,
+            lastClose:false
+        )
         
-        let Question_Think_Solve_array = [QTS1,QTS2,QTS3,QTS4,QTS5,QTS6,QTS7,QTS8,QTS9,QTS10]
+        let QTS_2_12 = Question_Thinks_solve_2.init(
+            Title: "בנה את המספר",
+            Number: 12,
+            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. הוסף סוגריים לפי הצורך" ,
+            Answer_Correct: 2,
+            Attempts: 0,
+            Num_1: "1",
+            Num_2: "2",
+            Num_3: "3",
+            Num_4: "4",
+            operator_1: "+",
+            operator_2: "+",
+            operator_3: "-",
+            firstClose: false,
+            lastClose:false
+        )
+        
+        let QTS_2_13 = Question_Thinks_solve_2.init(
+            Title: "בנה את המספר",
+            Number: 13,
+            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. הוסף סוגריים לפי הצורך" ,
+            Answer_Correct: 3,
+            Attempts: 0,
+            Num_1: "1",
+            Num_2: "2",
+            Num_3: "3",
+            Num_4: "4",
+            operator_1: "+",
+            operator_2: "x",
+            operator_3: "-",
+            firstClose: false,
+            lastClose:false
+        )
+        
+        let QTS_2_14 = Question_Thinks_solve_2.init(
+            Title: "בנה את המספר",
+            Number: 14,
+            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. הוסף סוגריים לפי הצורך" ,
+            Answer_Correct: 4,
+            Attempts: 0,
+            Num_1: "1",
+            Num_2: "2",
+            Num_3: "3",
+            Num_4: "4",
+            operator_1: "+",
+            operator_2: "-",
+            operator_3: "+",
+            firstClose: false,
+            lastClose:false
+        )
+        
+        let QTS_2_15 = Question_Thinks_solve_2.init(
+            Title: "בנה את המספר",
+            Number: 15,
+            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. הוסף סוגריים לפי הצורך" ,
+            Answer_Correct: 5,
+            Attempts: 0,
+            Num_1: "4",
+            Num_2: "4",
+            Num_3: "3",
+            Num_4: "4",
+            operator_1: "+",
+            operator_2: "(:",
+            operator_3: "+",
+            firstClose: true,
+            lastClose:false
+        )
+        
+        let QTS_2_16 = Question_Thinks_solve_2.init(
+            Title: "בנה את המספר",
+            Number: 16,
+            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. הוסף סוגריים לפי הצורך" ,
+            Answer_Correct: 6,
+            Attempts: 0,
+            Num_1: "1",
+            Num_2: "2",
+            Num_3: "3",
+            Num_4: "4",
+            operator_1: ":",
+            operator_2: "x",
+            operator_3: "x",
+            firstClose: false,
+            lastClose:false
+        )
+        let QTS_2_17 = Question_Thinks_solve_2.init(
+            Title: "בנה את המספר",
+            Number: 17,
+            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. הוסף סוגריים לפי הצורך" ,
+            Answer_Correct: 1,
+            Attempts: 0,
+            Num_1: "4",
+            Num_2: "4",
+            Num_3: "4",
+            Num_4: "4",
+            operator_1: "+",
+            operator_2: "):(",
+            operator_3: "+",
+            firstClose: true,
+            lastClose:true
+        )
+        let QTS_2_18 = Question_Thinks_solve_2.init(
+            Title: "בנה את המספר",
+            Number: 18,
+            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. הוסף סוגריים לפי הצורך" ,
+            Answer_Correct: 2,
+            Attempts: 0,
+            Num_1: "4",
+            Num_2: "4",
+            Num_3: "4",
+            Num_4: "4",
+            operator_1: ":",
+            operator_2: "+",
+            operator_3: ":",
+            firstClose: false,
+            lastClose:false
+        )
+        let QTS_2_19 = Question_Thinks_solve_2.init(
+            Title: "בנה את המספר",
+            Number: 19,
+            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. הוסף סוגריים לפי הצורך" ,
+            Answer_Correct: 3,
+            Attempts: 0,
+            Num_1: "4",
+            Num_2: "4",
+            Num_3: "4",
+            Num_4: "4",
+            operator_1: "+",
+            operator_2: "+",
+            operator_3: "):",
+            firstClose: true,
+            lastClose:false
+        )
+        
+        
+        let Question_Think_Solve_array = [QTS1,QTS2,QTS3,QTS4,QTS5,QTS6,QTS7,QTS8,QTS9,QTS10,QTS_2_11,QTS_2_12,QTS_2_13,QTS_2_14,QTS_2_15,QTS_2_16,QTS_2_17,QTS_2_18,QTS_2_19]
         return(Question_Think_Solve_array)
         
         

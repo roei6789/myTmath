@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2945F6C62072691100C9D993 /* Question_Thinks_solve_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945F6C52072691100C9D993 /* Question_Thinks_solve_2.swift */; };
 		8025064020385940009E6355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8025063F20385940009E6355 /* AppDelegate.swift */; };
 		8025064520385940009E6355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8025064320385940009E6355 /* Main.storyboard */; };
 		8025064720385940009E6355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8025064620385940009E6355 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2945F6C52072691100C9D993 /* Question_Thinks_solve_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question_Thinks_solve_2.swift; sourceTree = "<group>"; };
 		8025063C20385940009E6355 /* Math.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Math.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8025063F20385940009E6355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8025064420385940009E6355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				80ABBD422068224E00CFC945 /* Question.swift */,
 				80ABBD432068224E00CFC945 /* User.swift */,
 				80ABBD472068224E00CFC945 /* Worlds.swift */,
+				2945F6C52072691100C9D993 /* Question_Thinks_solve_2.swift */,
 			);
 			path = logic;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				80D4468B2052B77E000B264B /* SettingsPopupVC.swift in Sources */,
 				80C7413620716A54001A7C93 /* ThinkNSolve_1VC.swift in Sources */,
 				80ABBD4D2068224E00CFC945 /* Worlds.swift in Sources */,
+				2945F6C62072691100C9D993 /* Question_Thinks_solve_2.swift in Sources */,
 				8025066E20385A3F009E6355 /* worldsCollectionViewCell.swift in Sources */,
 				8068494820388FF400BD0482 /* riddleVC.swift in Sources */,
 				80A6C7782046F3E0007EF44E /* HomePageVC.swift in Sources */,
