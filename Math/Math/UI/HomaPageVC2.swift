@@ -23,6 +23,7 @@ class HomaPageVC2: UIViewController {
         super.viewDidLoad()
         //remove the visual effect at start
         effect = visualEffect.effect
+        visualEffect.alpha = 0
         visualEffect.effect = nil
         
         //ui additind
@@ -51,6 +52,7 @@ class HomaPageVC2: UIViewController {
         UIView.animate(withDuration: 0.4) {
             //setting visual effece
             self.visualEffect.effect = self.effect
+            self.visualEffect.alpha = 1
             //setting view visuality
             self.settingsView.alpha = 1
             //resizing setting view
@@ -62,6 +64,7 @@ class HomaPageVC2: UIViewController {
     func animateOut(){
         UIView.animate(withDuration: 0.3, animations: {
             self.settingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.visualEffect.alpha = 0
             self.settingsView.alpha = 0
             self.visualEffect.effect = nil
         }) { (succees : Bool) in

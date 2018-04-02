@@ -9,7 +9,15 @@
 import UIKit
 
 class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
+    //effect variables
+    @IBOutlet weak var visualEffect: UIVisualEffectView!
+    var effect : UIVisualEffect!
+    
+    @IBOutlet var rightAnwerView: UIView!
+    
+    @IBOutlet var wrongAnswerView: UIView!
+    
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var questionLable: UILabel!
@@ -34,6 +42,10 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         //initiolaize ui
+        //remove the visual effect at start
+        effect = visualEffect.effect
+        self.visualEffect.alpha = 0
+        visualEffect.effect = nil
         //accecability labels
         pickerView_1.accessibilityLabel = "1"
         pickerView_2.accessibilityLabel = "2"
@@ -47,11 +59,26 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             //check answer
             if(checkAnswer()){
                 //correct answer!!
+                //animate in
+                animateIn(animateView: rightAnwerView)
             }
             else{
                 //Incorrect answer
+                animateIn(animateView: wrongAnswerView)
             }
         }
+    }
+    
+    // MARK: Sub Views Methods.
+    
+    @IBAction func onClickNextLevel(_ sender: Any) {
+    }
+    @IBAction func onClickBack(_ sender: Any) {
+        animateOut(animateView: rightAnwerView)
+        
+    }
+    @IBAction func onClickTryAgain(_ sender: Any) {
+        //animate out
     }
     
     
@@ -95,5 +122,38 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         
     }
     
+    // MARK: Animation Methods.
+    //animate  view in
+    func animateIn( animateView : UIView){
+        self.view.addSubview(animateView)
+        animateView.center = self.view.center
+        //incrising the size effect
+        animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        //set opacity  to 0 =  transperent
+        animateView.alpha = 0
+        //animation
+        UIView.animate(withDuration: 0.4) {
+            //setting visual effece
+            self.visualEffect.effect = self.effect
+            self.visualEffect.alpha = 1
+            // view visuality
+            animateView.alpha = 1
+            //resizing setting view
+            animateView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    //animate  view out
+    func animateOut(animateView : UIView){
+        UIView.animate(withDuration: 0.3, animations: {
+            animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.visualEffect.alpha = 0
+            animateView.alpha = 0
+            self.visualEffect.effect = nil
+        }) { (succees : Bool) in
+            animateView.removeFromSuperview()
+        }
+    }
+
 
 }
