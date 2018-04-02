@@ -10,9 +10,9 @@ import Foundation
 
 class Game {
 
-    let Player : User
-    var currentWorlds : [String:Worlds]
-    //ovar sharedInstance = Game.init()
+    let Player : User?
+    var currentWorlds : [String:Worlds] = [:]
+    static var sharedInstance = Game.init()
     init(){
         //if there is a game stored in mobile data
         if let thisGame = UserDefaults.standard.object(forKey: "Game") as? Game {
@@ -21,9 +21,10 @@ class Game {
         }
         else {
             //intialize game
-            self.Player = User.init(First_name: "", Last_name: "", User_name: "")
-            self.currentWorlds = [:]
+           self.Player = User.init(First_name: "", Last_name: "", User_name: "")
+//            self.currentWorlds = [:]
             //call intialize method
+            initWorlds()
         }
    }//init
     

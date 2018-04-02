@@ -18,7 +18,7 @@ class HomePageVC: UIViewController {
   
     @IBOutlet var settingsView: UIView!
     
-    
+    let thisGame = Game.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class HomePageVC: UIViewController {
         self.settingsView.layer.cornerRadius = 10
         
        // getUserData()
-        let game = Game.init()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
