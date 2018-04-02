@@ -82,16 +82,16 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch pickerView.accessibilityLabel {
-        case "1":
-            self.signField_1.text = signes[row]
-        case "2":
-            self.signField_2.text = signes[row]
-        case "3":
-            self.signField_3.text = signes[row]
-        default:
-            self.signField_1.text = signes[row]
-        }
+//        switch pickerView.accessibilityLabel {
+//        case "1":
+//            self.signField_1.text = signes[row]
+//        case "2":
+//            self.signField_2.text = signes[row]
+//        case "3":
+//            self.signField_3.text = signes[row]
+//        default:
+//            self.signField_1.text = signes[row]
+//        }
         
     }
     
