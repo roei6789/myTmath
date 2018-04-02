@@ -9,6 +9,8 @@
 import Foundation
 
 class Game {
+    
+    
     let Player : User
     var currentWorlds : [Worlds]
     var sharedInstance = Game.init()
