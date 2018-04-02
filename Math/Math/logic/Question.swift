@@ -15,6 +15,7 @@ class  Question {
     var Explanation: String = ""
     var Answer_Correct:Int = 0
     var Attempts:Int = 0
+    var isCurrect: Bool = false
     //var Time_taken:Timer
     
     init(Title:String) {

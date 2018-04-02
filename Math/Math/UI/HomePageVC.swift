@@ -28,6 +28,7 @@ class HomePageVC: UIViewController {
         self.settingsView.layer.cornerRadius = 10
         
        // getUserData()
+        let game = Game.init()
     }
     
     override func viewDidAppear(_ animated: Bool) {

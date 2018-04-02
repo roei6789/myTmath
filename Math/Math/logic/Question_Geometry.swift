@@ -13,7 +13,7 @@ import Foundation
 class Question_Geometry: Question {
     //var Picture : String
     init(Title:String , Number:Int , Explantion:String,
-         Answer_Correct:Int, Attempts:Int,Time_taken:Timer, Picture:String) {
+         Answer_Correct:Int, Attempts:Int, Picture:String) {
         super.init(Title: Title)
         //super.init(Title: Title)
         //self.Title = Title
