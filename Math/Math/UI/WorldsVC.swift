@@ -12,16 +12,15 @@ class WorldsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
 
     //initiolize variables
     let thisGame = Game.sharedInstance
-    var thisWorlds : [String : Worlds] = [:]
-    static var selectedWorld = 0
+    var thisWorlds : [Worlds] = []
 
-    var worldsIMG  = [UIImage(named: "rectangles"),UIImage(named: "magicSqures"),UIImage(named: "matches")]
-    var worldsTitle = ["חידות מצולעים","ריבועי קסם","חידות גפרורים"]
+//    var worldsIMG  = [UIImage(named: "rectangles"),UIImage(named: "magicSqures"),UIImage(named: "matches")]
+//    var worldsTitle = ["חידות מצולעים","ריבועי קסם","חידות גפרורים"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //initiolize variables
-         thisWorlds = thisGame.currentWorlds
+         thisWorlds = thisGame.WorldsList
        
     }
     
@@ -32,19 +31,19 @@ class WorldsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return thisGame.currentWorlds.count
+        return thisWorlds.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "worldsCollectionViewCell", for: indexPath) as! worldsCollectionViewCell
-        let cellImag = UIImage (named: (self.thisWorlds[String(indexPath.row + 1)]?.picture)!)
+        let cellImag = UIImage (named: (self.thisWorlds[indexPath.row].picture))
         cell.worldIMG.image = cellImag //worldsIMG[indexPath.row]
-        cell.worlfLable.text = self.thisWorlds[String(indexPath.row + 1)]?.Name //worldsTitle[indexPath.row]
+        cell.worlfLable.text = self.thisWorlds[indexPath.row].Name //worldsTitle[indexPath.row]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       riddlesListVC2.selectedWorld = indexPath.row + 1
+       thisGame.SelectedWorld = indexPath.row 
         performSegue(withIdentifier: "toRiddleList", sender: self)
     }
 

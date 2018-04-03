@@ -13,15 +13,17 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     //initiolize variables
     let thisGame = Game.sharedInstance
     var thisWorldLevels : [ Question] = []
-    static var selectedWorld = 0
+    var selectedWorld = -1
     
-    var myIndex = 0
-    var riddles = ["1","2","3","4","5","6","7","8","9","10","11"]
+//    var myIndex = 0
+//    var riddles = ["1","2","3","4","5","6","7","8","9","10","11"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //initiolize variables
-        thisWorldLevels = (thisGame.currentWorlds[String(riddlesListVC2.selectedWorld)]?.Array_Questions)!
+        selectedWorld = thisGame.SelectedWorld
+        thisWorldLevels = thisGame.WorldsList[thisGame.SelectedWorld].Array_Questions
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,8 +54,30 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected: " + String(indexPath.row) )
-        myIndex = indexPath.row
-        performSegue(withIdentifier: "toRiddle", sender: self)
+        thisGame.SelectedQuestion = indexPath.row
+        //move to correct View
+        let ques = thisGame.getQuestion(world: thisGame.SelectedWorld, question: thisGame.SelectedQuestion)
+        if ques is Question_Geometry{
+           performSegue(withIdentifier: "toRiddle", sender: self)
+        }
+        else if ques is Question_Thinks_solve {
+            performSegue(withIdentifier: "toRiddle", sender: self)
+        }
+        else{
+            performSegue(withIdentifier: "toRiddle", sender: self)
+        }
+        
+//        switch type(of: ques) {
+//        case is Question_Geometry:
+//            performSegue(withIdentifier: "toRiddle", sender: self)
+//        case is Question_Thinks_solve:
+//            performSegue(withIdentifier: "toRiddle", sender: self)
+//        case is Question_Thinks_solve_2:
+//            performSegue(withIdentifier: "toRiddle", sender: self)
+//        default:
+//            performSegue(withIdentifier: "toRiddle", sender: self)
+//        }
+        
     }
 }
 

@@ -11,13 +11,15 @@ import Foundation
 class Game {
 
     let Player : User?
-    var currentWorlds : [String:Worlds] = [:]
+    var WorldsList : [Worlds] = []
+    var SelectedWorld = -1
+    var SelectedQuestion = -1
     static var sharedInstance = Game.init()
     init(){
         //if there is a game stored in mobile data
         if let thisGame = UserDefaults.standard.object(forKey: "Game") as? Game {
             self.Player = thisGame.Player
-            self.currentWorlds = thisGame.currentWorlds
+            self.WorldsList = thisGame.WorldsList
         }
         else {
             //intialize game
@@ -33,13 +35,13 @@ class Game {
         
          let world_2 = Worlds.init(ID: 2, Name: "חשוב וחשב", Array_Questions: build_QTS_Array(), picture: "World2")
         
-        var thisworlds : [String : Worlds] = ["1" : world_1 ,"2" : world_2]
-        currentWorlds = thisworlds
+        var thisworlds : [ Worlds] = [ world_1 ,world_2]
+        WorldsList = thisworlds
     }
     
-    func getQuestion(world: String, question:Int) -> (Question){
-     let q = self.currentWorlds[world]?.Array_Questions[question-1]
-        return q!
+    func getQuestion(world: Int, question:Int) -> (Question){
+     let q = self.WorldsList[world].Array_Questions[question-1]
+        return q
     }
     
     func build_QG_Array() ->(Array<Question>)  {
