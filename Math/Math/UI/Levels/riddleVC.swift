@@ -21,25 +21,43 @@ class riddleVC: UIViewController {
     @IBOutlet weak var questionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var answerViewTop: NSLayoutConstraint!
     
+    //initiolize variables
+    let thisGame = Game.sharedInstance
+    var selectedWorld = -1
+    var SelectedQuestion = -1
+    //var thisQuestion :  Question?
+    var thisQuestion :  Question_Geometry?
+    var questionNumber : Int = -1
+    var correctAnwer : Int = -1
+    var attemps : Int =  -1
+    var isCorrect = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-        self.questionViewHeight.constant = (self.view.frame.height / 4 ) * 3
         
+        //initiolize variables
+        selectedWorld = thisGame.SelectedWorld
+        SelectedQuestion  = thisGame.SelectedQuestion
+//        questionNumber = (thisQuestion?.Number)!
+//        correctAnwer = (thisQuestion?.Answer_Correct)!
+//        attemps = (thisQuestion?.Attempts)!
+        thisQuestion = thisGame.getQuestion(world: selectedWorld, question: SelectedQuestion) as? Question_Geometry //need to check for nil
+        
+        //UI initiolize
+        //navigation bar
+//        self.navigationController?.isNavigationBarHidden = true
+        self.questionViewHeight.constant = (self.view.frame.height / 4 ) * 3
+        //question data
+        self.riddleTitle.text = thisQuestion?.Title
+        self.riddleQuestion.text = thisQuestion?.Explanation
+        self.riddleIMG.image = UIImage(named : (thisQuestion?.Picture)!)
         
         //abserver for keyboard
         let center : NotificationCenter = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         center.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
-            
-        
-        
-       // self.riddleTitle.text = riddles[myIndex]
-        self.riddleIMG.image = UIImage(named : "level1")
-        
-        
-        // Do any additional setup after loading the view.
+
     }
     
     

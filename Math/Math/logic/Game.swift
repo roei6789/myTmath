@@ -17,9 +17,10 @@ class Game {
     static var sharedInstance = Game.init()
     init(){
         //if there is a game stored in mobile data
-        if let thisGame = UserDefaults.standard.object(forKey: "Game") as? Game {
-            self.Player = thisGame.Player
-            self.WorldsList = thisGame.WorldsList
+        if let savedPlayer = UserDefaults.standard.object(forKey: "User") as? User,
+            let savedWorlds = UserDefaults.standard.object(forKey: "WorldsList") as? [Worlds]{
+            self.Player = savedPlayer
+            self.WorldsList = savedWorlds
         }
         else {
             //intialize game
@@ -35,13 +36,37 @@ class Game {
         
          let world_2 = Worlds.init(ID: 2, Name: "חשוב וחשב", Array_Questions: build_QTS_Array(), picture: "World2")
         
-        var thisworlds : [ Worlds] = [ world_1 ,world_2]
+        let thisworlds : [ Worlds] = [ world_1 ,world_2]
         WorldsList = thisworlds
     }
     
     func getQuestion(world: Int, question:Int) -> (Question){
-     let q = self.WorldsList[world].Array_Questions[question-1]
+     let q = self.WorldsList[world].Array_Questions[question]
         return q
+    }
+    
+    func updateGame(user : User){
+        UserDefaults.standard.set(user, forKey: "User")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func updateGame(user: User, game : Game, worldNum : Int, levelNum : Int, question : Question){
+        let thisGame = game
+        let selectedWorld = thisGame.WorldsList[worldNum]
+        selectedWorld.Array_Questions[levelNum] = question
+        //game.WorldsList[worldNum].Array_Questions[levelNum] = question
+        //UserDefaults.standard.set(game.WorldsList, forKey: "WorldsList")
+        UserDefaults.standard.set(selectedWorld, forKey: "WorldsList")
+        UserDefaults.standard.set(user, forKey: "User")
+        UserDefaults.standard.synchronize()
+    }
+    
+    func upfateGame(user : User, question: Question){
+        UserDefaults.standard.set(user, forKey: "User")
+        let thisWorlds = Game.sharedInstance.WorldsList
+        thisWorlds[0].Array_Questions[question.Number] = question
+        UserDefaults.standard.set(thisWorlds, forKey: "WorldsList")
+        UserDefaults.standard.synchronize()
     }
     
     func build_QG_Array() ->(Array<Question>)  {
@@ -275,7 +300,7 @@ class Game {
             Num_2: "2",
             Num_3: "3",
             Num_4: "4",
-            operator_1: "x",
+            operator_1: "X",
             operator_2: "+",
             operator_3: "-",
             firstClose: false,
@@ -310,7 +335,7 @@ class Game {
             Num_3: "3",
             Num_4: "4",
             operator_1: "+",
-            operator_2: "x",
+            operator_2: "X",
             operator_3: "-",
             firstClose: false,
             lastClose:false
@@ -361,8 +386,8 @@ class Game {
             Num_3: "3",
             Num_4: "4",
             operator_1: ":",
-            operator_2: "x",
-            operator_3: "x",
+            operator_2: "X",
+            operator_3: "X",
             firstClose: false,
             lastClose:false
         )

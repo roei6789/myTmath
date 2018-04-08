@@ -2,30 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../Math/Game.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../Math/geometricQ_json.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../Math/Question_Geometry.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../Math/Question_Thinks_solve.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../Math/Question.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/aviv.maor/Desktop/Aviv/&#x5dc;&#x5d9;&#x5de;&#x5d5;&#x5d3;&#x5d9;&#x5dd;/&#x5de;&#x5d1;&#x5e6;&#x5e2; &#x5e1;&#x5d1;&#x5ea;&#x5d0;/MathApp/Math/Math/User.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../../../&#x5de;&#x5d0;&#x5d5;&#x5e8;/25.3.18/User.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/aviv.maor/Desktop/Aviv/&#x5dc;&#x5d9;&#x5de;&#x5d5;&#x5d3;&#x5d9;&#x5dd;/&#x5de;&#x5d1;&#x5e6;&#x5e2; &#x5e1;&#x5d1;&#x5ea;&#x5d0;/MathApp/Math/Math/Worlds.swift">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

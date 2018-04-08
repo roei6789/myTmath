@@ -10,9 +10,11 @@ import Foundation
 
 class Question_Thinks_solve: Question {
     
+    var content : String
    // var Picture:String
     init(Title:String , Number:Int , Explantion:String,
          Answer_Correct:Int, Attempts:Int ,Content:String) {
+        content = Content
         super.init(Title: Title)
         self.Title = Title
         self.Number = Number

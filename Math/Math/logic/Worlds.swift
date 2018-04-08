@@ -11,11 +11,11 @@ import UIKit
 class Worlds {
     var ID:Int
     var Name:String
-    var Array_Questions: Array<Question>
+    var Array_Questions: [Question]
     var picture:String
     var Number_of_q_answrd:Int
     var Number_of_q_in_world:Int
-    init(ID:Int , Name:String , Array_Questions:Array<Question>,
+    init(ID:Int , Name:String , Array_Questions:[Question],
          picture:String) {
         self.ID = ID
         self.Name = Name

@@ -139,7 +139,6 @@
 				8025064B20385940009E6355 /* Info.plist */,
 				80ABBD3D2068204900CFC945 /* logic */,
 				80D4468E2052C25D000B264B /* UI */,
-				80ABBD372067EB3500CFC945 /* geometricQ_json.swift */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -162,6 +161,35 @@
 			path = MathUITests;
 			sourceTree = "<group>";
 		};
+		8089599420778DAD0036C296 /* WorldsList */ = {
+			isa = PBXGroup;
+			children = (
+				8025066D20385A3F009E6355 /* worldsCollectionViewCell.swift */,
+				8025066F2038609A009E6355 /* WorldsVC.swift */,
+			);
+			path = WorldsList;
+			sourceTree = "<group>";
+		};
+		8089599520778DD00036C296 /* Levels List */ = {
+			isa = PBXGroup;
+			children = (
+				806849492038933C00BD0482 /* riddlesCell.swift */,
+				80278CF5204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift */,
+				80D4468C2052C186000B264B /* riddlesListVC2.swift */,
+			);
+			path = "Levels List";
+			sourceTree = "<group>";
+		};
+		8089599620778E050036C296 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				8068494720388FF400BD0482 /* riddleVC.swift */,
+				80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */,
+				80C7413220711BA8001A7C93 /* ThinkNSolve_2_VC.swift */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
 		80ABBD3D2068204900CFC945 /* logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +200,7 @@
 				80ABBD432068224E00CFC945 /* User.swift */,
 				80ABBD472068224E00CFC945 /* Worlds.swift */,
 				2945F6C52072691100C9D993 /* Question_Thinks_solve_2.swift */,
+				80ABBD372067EB3500CFC945 /* geometricQ_json.swift */,
 			);
 			path = logic;
 			sourceTree = "<group>";
@@ -180,17 +209,12 @@
 			isa = PBXGroup;
 			children = (
 				8025064320385940009E6355 /* Main.storyboard */,
-				8025066D20385A3F009E6355 /* worldsCollectionViewCell.swift */,
-				8025066F2038609A009E6355 /* WorldsVC.swift */,
-				8068494720388FF400BD0482 /* riddleVC.swift */,
-				806849492038933C00BD0482 /* riddlesCell.swift */,
 				80A6C7772046F3E0007EF44E /* HomePageVC.swift */,
 				80AE0296204AFA9D0025754F /* HomaPageVC2.swift */,
-				80278CF5204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift */,
 				80D4468A2052B77E000B264B /* SettingsPopupVC.swift */,
-				80D4468C2052C186000B264B /* riddlesListVC2.swift */,
-				80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */,
-				80C7413220711BA8001A7C93 /* ThinkNSolve_2_VC.swift */,
+				8089599420778DAD0036C296 /* WorldsList */,
+				8089599520778DD00036C296 /* Levels List */,
+				8089599620778E050036C296 /* Levels */,
 			);
 			path = UI;
 			sourceTree = "<group>";

@@ -15,6 +15,7 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     var thisWorldLevels : [ Question] = []
     var selectedWorld = -1
     
+    
 //    var myIndex = 0
 //    var riddles = ["1","2","3","4","5","6","7","8","9","10","11"]
     
@@ -58,13 +59,13 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
         //move to correct View
         let ques = thisGame.getQuestion(world: thisGame.SelectedWorld, question: thisGame.SelectedQuestion)
         if ques is Question_Geometry{
-           performSegue(withIdentifier: "toRiddle", sender: self)
+           performSegue(withIdentifier: "toRiddle_G", sender: self)
         }
         else if ques is Question_Thinks_solve {
-            performSegue(withIdentifier: "toRiddle", sender: self)
+            performSegue(withIdentifier: "toRiddle_TS1", sender: self)
         }
         else{
-            performSegue(withIdentifier: "toRiddle", sender: self)
+            performSegue(withIdentifier: "toRiddle_TS2", sender: self)
         }
         
 //        switch type(of: ques) {
