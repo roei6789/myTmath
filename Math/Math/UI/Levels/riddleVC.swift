@@ -29,7 +29,7 @@ class riddleVC: UIViewController {
     var thisQuestion :  Question_Geometry?
     var questionNumber : Int = -1
     var correctAnwer : Int = -1
-    var attemps : Int =  -1
+    //var attemps : Int =  -1
     var isCorrect = false
     
     override func viewDidLoad() {
@@ -40,8 +40,9 @@ class riddleVC: UIViewController {
         SelectedQuestion  = thisGame.SelectedQuestion
 //        questionNumber = (thisQuestion?.Number)!
 //        correctAnwer = (thisQuestion?.Answer_Correct)!
-//        attemps = (thisQuestion?.Attempts)!
+        
         thisQuestion = thisGame.getQuestion(world: selectedWorld, question: SelectedQuestion) as? Question_Geometry //need to check for nil
+        //attemps = thisQuestion!.Attempts
         
         //UI initiolize
         //navigation bar
@@ -61,6 +62,27 @@ class riddleVC: UIViewController {
     }
     
     
+    // MARK: Private Methods.
+    fileprivate func checkAnswer() -> Bool{
+        if let correct : Int = thisQuestion?.Answer_Correct{
+            let strCorrect :String = String(correct)
+            if answerField.text == strCorrect{
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        return false
+    }
+    
+    fileprivate func checkValidInput() -> Bool {
+        var valid = false
+        if (answerField.text != "" ){
+            valid = true
+        }
+        return valid
+    }
    
     @objc func keyboardDidShow (notification : Notification){
     let info : NSDictionary = notification.userInfo! as NSDictionary
@@ -95,7 +117,31 @@ class riddleVC: UIViewController {
         return true
     }
 
+    // MARK: OnClick Methods.
     @IBAction func onClickCheck(_ sender: Any) {
+        if(checkValidInput()){
+            //stop watch + visual effect
+            thisQuestion?.Attempts = (thisQuestion?.Attempts)! + 1
+            //check answer
+            if(checkAnswer()){
+                //correct answer!!
+                correctAnswer()
+                //update question
+                //animate in
+               // animateIn(animateView: rightAnwerView)
+            }
+            else{
+                //Incorrect answer
+                //update question
+                //animateIn(animateView: wrongAnswerView)
+            }
+        }
+    }
+    
+    func correctAnswer (){
+        thisQuestion?.isCurrect = true
+        thisGame.Player?.addPoint()
+        thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
     }
  
 

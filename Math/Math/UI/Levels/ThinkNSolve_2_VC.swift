@@ -123,14 +123,15 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         
 
     }
-
+    // MARK: OnClick Methods.
     @IBAction func onClickCheck(_ sender: Any) {
         if(checkValidInput()){
             //stop watch + visual effect
+            thisQuestion?.Attempts = (thisQuestion?.Attempts)! + 1
             //check answer
             if(checkAnswer()){
                 //correct answer!!
-                isCorrect = true
+                correctAnswer()
                 //animate in
                 animateIn(animateView: rightAnwerView)
             }
@@ -175,7 +176,7 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     
     // MARK: Private Methods.
     fileprivate func checkAnswer() -> Bool{
-        if (signField_1.text == operator_1 && signField_2.text == operator_2 && signField_3.text == operator_3 && firstClose == leftClose.isSpringLoaded && lastClose == rightClose.isSelected){
+        if (signField_1.text == operator_1 && signField_2.text == operator_2 && signField_3.text == operator_3){
             return true
         }
         return false
@@ -187,6 +188,12 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             valid = true
         }
         return valid
+    }
+    
+    func correctAnswer (){
+        thisQuestion?.isCurrect = true
+        thisGame.Player?.addPoint()
+        thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
     }
     
     // MARK: Picker Methods.

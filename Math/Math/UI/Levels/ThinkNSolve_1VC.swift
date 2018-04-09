@@ -54,9 +54,11 @@ class ThinkNSolve_1VC: UIViewController {
     @IBAction func onClickCheck(_ sender: Any) {
         if(checkValidInput()){
             //stop watch + visual effect
+            thisQuestion?.Attempts = (thisQuestion?.Attempts)! + 1
             //check answer
             if(checkAnswer()){
                 //correct answer!!
+                correctAnswer()
             }
             else{
                 //Incorrect answer
@@ -66,7 +68,16 @@ class ThinkNSolve_1VC: UIViewController {
     
     // MARK: Private Methods.
     fileprivate func checkAnswer() -> Bool{
-        return true
+        if let correct : Int = thisQuestion?.Answer_Correct{
+            let strCorrect :String = String(correct)
+            if answerField.text == strCorrect{
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        return false
     }
     
     fileprivate func checkValidInput() -> Bool {
@@ -75,6 +86,12 @@ class ThinkNSolve_1VC: UIViewController {
            valid = true
         }
         return valid
+    }
+    
+    func correctAnswer (){
+        thisQuestion?.isCurrect = true
+        thisGame.Player?.addPoint()
+        thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
     }
 
     // MARK: Keyboard Methods.
