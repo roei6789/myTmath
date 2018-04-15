@@ -17,15 +17,23 @@ class Game {
     static var sharedInstance = Game.init()
     init(){
         //if there is a game stored in mobile data
-        if let savedPlayer = UserDefaults.standard.object(forKey: "User") as? User,
-            let savedWorlds = UserDefaults.standard.object(forKey: "WorldsList") as? [Worlds]{
-            self.Player = savedPlayer
-            self.WorldsList = savedWorlds
+        let userDefaults = UserDefaults.standard
+            let decoded  = userDefaults.object(forKey: "WorldsList") as! Data
+            let decodedWorldsList = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Worlds]
+        if (decodedWorldsList.count > 0) {   //(decodedWorldsList != nil)
+            //self.Player = savedPlayer
+            self.Player = User.init(First_name: "", Last_name: "", User_name: "")
+            self.WorldsList = decodedWorldsList
         }
+//        if /*let savedPlayer = UserDefaults.standard.object(forKey: "User") as? User,*/
+//            let savedWorlds = UserDefaults.standard.array(forKey: "WorldsList") as? [Worlds]{
+//            //self.Player = savedPlayer
+//             self.Player = User.init(First_name: "", Last_name: "", User_name: "")
+//            self.WorldsList = savedWorlds
+//        }
         else {
             //intialize game
            self.Player = User.init(First_name: "", Last_name: "", User_name: "")
-//            self.currentWorlds = [:]
             //call intialize method
             initWorlds()
         }
@@ -45,20 +53,26 @@ class Game {
         return q
     }
     
-    func updateGame(user : User){
-        UserDefaults.standard.set(user, forKey: "User")
-        UserDefaults.standard.synchronize()
+    func SaveGame(){
+        let userDefaults = UserDefaults.standard
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: self.WorldsList)
+        userDefaults.set(encodedData, forKey: "WorldsList")
+        userDefaults.synchronize()
     }
     
     func updateGame(user: User, game : Game, worldNum : Int, levelNum : Int, question : Question){
-        let thisGame = game
-        let selectedWorld = thisGame.WorldsList[worldNum]
-        selectedWorld.Array_Questions[levelNum] = question
-        //game.WorldsList[worldNum].Array_Questions[levelNum] = question
+        game.WorldsList[worldNum].Array_Questions[levelNum] = question
+        self.WorldsList = game.WorldsList
+        
+        //save in user defualts
+        let userDefaults = UserDefaults.standard
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: game.WorldsList)
+        userDefaults.set(encodedData, forKey: "WorldsList")
+        userDefaults.synchronize()
+
         //UserDefaults.standard.set(game.WorldsList, forKey: "WorldsList")
-        UserDefaults.standard.set(selectedWorld, forKey: "WorldsList")
-        UserDefaults.standard.set(user, forKey: "User")
-        UserDefaults.standard.synchronize()
+        //UserDefaults.standard.set(user, forKey: "Player")
+        //UserDefaults.standard.synchronize()
     }
     
     func upfateGame(user : User, question: Question){
@@ -210,7 +224,7 @@ class Game {
             Explantion: "פתור את התרגילים הבאים ללא עזרת מחשבון",
             Answer_Correct: 11,
             Attempts: 0,
-            Content: "9x1+2"
+            Content: "9 x 1 + 2 "
         )
         let QTS2 = Question_Thinks_solve.init(
             Title:"חשבון משעשע",
@@ -218,7 +232,7 @@ class Game {
             Explantion: "פתור את התרגילים הבאים ללא עזרת מחשבון",
             Answer_Correct: 21,
             Attempts: 0,
-            Content: "9x2+3"
+            Content: "9 x 2 + 3 "
         )
         
         let QTS3 = Question_Thinks_solve.init(
@@ -227,7 +241,7 @@ class Game {
             Explantion: "פתור את התרגילים הבאים ללא עזרת מחשבון",
             Answer_Correct: 31,
             Attempts: 0,
-            Content: "9x3+4"
+            Content: " 9 x 3 + 4 "
         )
         
         let QTS4 = Question_Thinks_solve.init(
@@ -236,7 +250,7 @@ class Game {
             Explantion: "פתור את התרגילים הבאים ללא עזרת מחשבון",
             Answer_Correct: 41,
             Attempts: 0,
-            Content: "9x4+5"
+            Content: "9 x 4 + 5 "
         )
         
         let QTS5 = Question_Thinks_solve.init(
@@ -245,7 +259,7 @@ class Game {
             Explantion: "פתור את התרגילים הבאים ללא עזרת מחשבון",
             Answer_Correct: 101,
             Attempts: 0,
-            Content: "9x10+11"
+            Content: "9 x 10 + 11 "
         )
         let QTS6 = Question_Thinks_solve.init(
             Title:"חשבון משעשע",
@@ -261,7 +275,7 @@ class Game {
             Explantion: "פתור את התרגילים הבאים ללא עזרת מחשבון",
             Answer_Correct: 121,
             Attempts: 0,
-            Content: "9x12+13"
+            Content: "9 x 12 + 13 "
         )
         
         let QTS8 = Question_Thinks_solve.init(
@@ -270,7 +284,7 @@ class Game {
             Explantion: "פתור את התרגילים הבאים ללא עזרת מחשבון",
             Answer_Correct: 131,
             Attempts: 0,
-            Content: "9x13+14"
+            Content: "9 x 13 + 14 "
         )
         
         let QTS9 = Question_Thinks_solve.init(
@@ -279,7 +293,7 @@ class Game {
             Explantion: "פתור את התרגילים הבאים ללא עזרת מחשבון",
             Answer_Correct: 141,
             Attempts: 0,
-            Content: "9x14+15"
+            Content: "9 x 14 + 15 "
         )
         
         let QTS10 = Question_Thinks_solve.init(
@@ -288,7 +302,7 @@ class Game {
             Explantion: "פתור את התרגילים הבאים ללא עזרת מחשבון",
             Answer_Correct: 151,
             Attempts: 0,
-            Content: "9x15+16"
+            Content: "9 x 15 + 16 "
         )
         let QTS_2_11 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",

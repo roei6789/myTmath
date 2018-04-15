@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
-class Worlds {
+class Worlds : NSObject , NSCoding {
+
     var ID:Int
     var Name:String
     var Array_Questions: [Question]
@@ -23,6 +24,27 @@ class Worlds {
         self.picture = picture
         self.Number_of_q_answrd = 0
         self.Number_of_q_in_world = self.Array_Questions.count
+    }
+    
+
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        let ID = aDecoder.decodeInteger(forKey: "ID")
+        let Name = aDecoder.decodeObject(forKey: "Name") as! String
+        let Array_Questions = aDecoder.decodeObject(forKey: "Array_Questions") as! [Question]
+        let picture = aDecoder.decodeObject(forKey: "picture") as! String
+        _ = aDecoder.decodeInteger(forKey: "Number_of_q_answrd")
+        _ = aDecoder.decodeInteger(forKey: "Number_of_q_in_world")
+        self.init(ID: ID, Name: Name, Array_Questions: Array_Questions, picture: picture)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(ID, forKey: "ID")
+        aCoder.encode(Name, forKey: "Name")
+        aCoder.encode(Array_Questions, forKey: "Array_Questions")
+        aCoder.encode(picture, forKey: "picture")
+        aCoder.encode(Number_of_q_answrd, forKey: "Number_of_q_answrd")
+        aCoder.encode(Number_of_q_in_world, forKey: "Number_of_q_in_world")
     }
 }
 

@@ -34,6 +34,9 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RiddlesCollectionViewCell2", for: indexPath) as! RiddlesCollectionViewCell2
         cell.nuberLabel.text = String(thisWorldLevels[indexPath.row].Number)
+        if thisWorldLevels[indexPath.row].isCurrect {
+            cell.backgroundColor = UIColor.green
+        }
         return cell
     }
     

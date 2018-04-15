@@ -48,7 +48,7 @@ class ThinkNSolve_1VC: UIViewController {
         //question data
         self.titleLable.text  = thisQuestion?.Title
         self.questionLable.text = thisQuestion?.Explanation
-        self.riddle.text = thisQuestion?.content
+        self.riddle.text = (thisQuestion?.content)! + "= "
     }
 
     @IBAction func onClickCheck(_ sender: Any) {
@@ -62,6 +62,8 @@ class ThinkNSolve_1VC: UIViewController {
             }
             else{
                 //Incorrect answer
+                 wrongAnswer()
+                
             }
         }
     }
@@ -89,9 +91,14 @@ class ThinkNSolve_1VC: UIViewController {
     }
     
     func correctAnswer (){
+        performSegue(withIdentifier: "showCorrectAnswerView", sender: self)
         thisQuestion?.isCurrect = true
         thisGame.Player?.addPoint()
         thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
+    }
+    
+    func wrongAnswer(){
+        performSegue(withIdentifier: "showWrongAnswerView", sender: self)
     }
 
     // MARK: Keyboard Methods.

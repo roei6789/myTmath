@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2945F6C62072691100C9D993 /* Question_Thinks_solve_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2945F6C52072691100C9D993 /* Question_Thinks_solve_2.swift */; };
+		80124A0A20809193007E8CF8 /* CorrectAnswerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80124A0920809193007E8CF8 /* CorrectAnswerVC.swift */; };
+		80124A0C208091B3007E8CF8 /* WrongtAnswerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80124A0B208091B3007E8CF8 /* WrongtAnswerVC.swift */; };
 		8025064020385940009E6355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8025063F20385940009E6355 /* AppDelegate.swift */; };
 		8025064520385940009E6355 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8025064320385940009E6355 /* Main.storyboard */; };
 		8025064720385940009E6355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8025064620385940009E6355 /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		2945F6C52072691100C9D993 /* Question_Thinks_solve_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question_Thinks_solve_2.swift; sourceTree = "<group>"; };
+		80124A0920809193007E8CF8 /* CorrectAnswerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectAnswerVC.swift; sourceTree = "<group>"; };
+		80124A0B208091B3007E8CF8 /* WrongtAnswerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongtAnswerVC.swift; sourceTree = "<group>"; };
 		8025063C20385940009E6355 /* Math.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Math.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8025063F20385940009E6355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8025064420385940009E6355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				8068494720388FF400BD0482 /* riddleVC.swift */,
 				80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */,
 				80C7413220711BA8001A7C93 /* ThinkNSolve_2_VC.swift */,
+				80124A0920809193007E8CF8 /* CorrectAnswerVC.swift */,
+				80124A0B208091B3007E8CF8 /* WrongtAnswerVC.swift */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -368,11 +374,13 @@
 				80A6C7782046F3E0007EF44E /* HomePageVC.swift in Sources */,
 				8025064020385940009E6355 /* AppDelegate.swift in Sources */,
 				80ABBD382067EB3500CFC945 /* geometricQ_json.swift in Sources */,
+				80124A0A20809193007E8CF8 /* CorrectAnswerVC.swift in Sources */,
 				80D4468D2052C186000B264B /* riddlesListVC2.swift in Sources */,
 				80ABBD482068224E00CFC945 /* Question.swift in Sources */,
 				80278CF6204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift in Sources */,
 				8068494A2038933C00BD0482 /* riddlesCell.swift in Sources */,
 				80C7413320711BA9001A7C93 /* ThinkNSolve_2_VC.swift in Sources */,
+				80124A0C208091B3007E8CF8 /* WrongtAnswerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

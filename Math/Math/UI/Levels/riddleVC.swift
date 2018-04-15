@@ -132,6 +132,7 @@ class riddleVC: UIViewController {
             }
             else{
                 //Incorrect answer
+                wrongAnswer()
                 //update question
                 //animateIn(animateView: wrongAnswerView)
             }
@@ -139,9 +140,14 @@ class riddleVC: UIViewController {
     }
     
     func correctAnswer (){
+         performSegue(withIdentifier: "showCorrectAnswerView", sender: self)
         thisQuestion?.isCurrect = true
         thisGame.Player?.addPoint()
         thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
+    }
+    
+    func wrongAnswer(){
+        performSegue(withIdentifier: "showWrongAnswerView", sender: self)
     }
  
 
