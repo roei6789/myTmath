@@ -26,7 +26,28 @@ class Worlds : NSObject , NSCoding {
         self.Number_of_q_in_world = self.Array_Questions.count
     }
     
-
+    func getUserPoints() -> Int{
+        UpdateUserPoints()
+        return self.Number_of_q_answrd
+    }
+    
+    func UpdateUserPoints(){
+        var points = 0
+        for question in Array_Questions{
+            if question.isCurrect{
+                points += 1
+            }
+        }
+        self.Number_of_q_answrd = points
+    }
+    
+    func getUserCurrectQ() -> [Bool]{
+        var q_correct : [Bool] = []
+        for q in Array_Questions{
+            q_correct.append(q.isCurrect)
+        }
+        return q_correct
+    }
     
     required convenience init(coder aDecoder: NSCoder) {
         let ID = aDecoder.decodeInteger(forKey: "ID")

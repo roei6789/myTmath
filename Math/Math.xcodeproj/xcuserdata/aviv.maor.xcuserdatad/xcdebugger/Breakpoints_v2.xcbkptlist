@@ -88,7 +88,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels/ThinkNSolve_1VC.swift"
-            timestampString = "545405769.191563"
+            timestampString = "545593792.06759"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -104,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/logic/Game.swift"
-            timestampString = "545499914.863813"
+            timestampString = "545594033.3747621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "updateGame(user:game:worldNum:levelNum:question:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -120,77 +120,93 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/logic/Game.swift"
-            timestampString = "545499914.86388"
+            timestampString = "545594033.3748879"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "init()"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "initWorlds()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Math/logic/Game.swift"
-            timestampString = "545499914.863933"
+            filePath = "Math/logic/Question_Thinks_solve.swift"
+            timestampString = "545590450.002746"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "init()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Math/UI/Levels/riddleVC.swift"
-            timestampString = "545405129.624633"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "init(Title:Number:Explantion:Answer_Correct:Attempts:Content:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Math.riddleVC.viewDidLoad() -&gt; ()"
+                  symbolName = "Math.Question_Thinks_solve.__allocating_init(Title: Swift.String, Number: Swift.Int, Explantion: Swift.String, Answer_Correct: Swift.Int, Attempts: Swift.Int, Content: Swift.String) -&gt; Math.Question_Thinks_solve"
                   moduleName = "Math"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/Levels/riddleVC.swift"
-                  timestampString = "545405769.331624"
+                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/logic/Question_Thinks_solve.swift"
+                  timestampString = "545590913.580107"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "3108">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "42">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Math.riddleVC.viewDidLoad() -&gt; ()"
+                  symbolName = "Math.Question_Thinks_solve.init(Title: Swift.String, Number: Swift.Int, Explantion: Swift.String, Answer_Correct: Swift.Int, Attempts: Swift.Int, Content: Swift.String) -&gt; Math.Question_Thinks_solve"
                   moduleName = "Math"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/Levels/riddleVC.swift"
-                  timestampString = "545405769.333396"
+                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/logic/Question_Thinks_solve.swift"
+                  timestampString = "545590913.583145"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "5209">
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "96">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Math/UI/Levels List/riddlesListVC2.swift"
+            timestampString = "545594033.375126"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Math/UI/Levels/WrongtAnswerVC.swift"
+            timestampString = "545594033.375228"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "onClickBack(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

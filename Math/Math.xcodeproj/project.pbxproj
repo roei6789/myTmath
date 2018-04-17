@@ -22,7 +22,7 @@
 		8068494820388FF400BD0482 /* riddleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068494720388FF400BD0482 /* riddleVC.swift */; };
 		8068494A2038933C00BD0482 /* riddlesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806849492038933C00BD0482 /* riddlesCell.swift */; };
 		80A6C7782046F3E0007EF44E /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A6C7772046F3E0007EF44E /* HomePageVC.swift */; };
-		80ABBD382067EB3500CFC945 /* geometricQ_json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD372067EB3500CFC945 /* geometricQ_json.swift */; };
+		80ABBD382067EB3500CFC945 /* Q_create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD372067EB3500CFC945 /* Q_create.swift */; };
 		80ABBD482068224E00CFC945 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD422068224E00CFC945 /* Question.swift */; };
 		80ABBD492068224E00CFC945 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD432068224E00CFC945 /* User.swift */; };
 		80ABBD4A2068224E00CFC945 /* Question_Thinks_solve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD442068224E00CFC945 /* Question_Thinks_solve.swift */; };
@@ -75,7 +75,7 @@
 		8068494720388FF400BD0482 /* riddleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddleVC.swift; sourceTree = "<group>"; };
 		806849492038933C00BD0482 /* riddlesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddlesCell.swift; sourceTree = "<group>"; };
 		80A6C7772046F3E0007EF44E /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
-		80ABBD372067EB3500CFC945 /* geometricQ_json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geometricQ_json.swift; sourceTree = "<group>"; };
+		80ABBD372067EB3500CFC945 /* Q_create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Q_create.swift; sourceTree = "<group>"; };
 		80ABBD422068224E00CFC945 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		80ABBD432068224E00CFC945 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		80ABBD442068224E00CFC945 /* Question_Thinks_solve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question_Thinks_solve.swift; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 				80ABBD432068224E00CFC945 /* User.swift */,
 				80ABBD472068224E00CFC945 /* Worlds.swift */,
 				2945F6C52072691100C9D993 /* Question_Thinks_solve_2.swift */,
-				80ABBD372067EB3500CFC945 /* geometricQ_json.swift */,
+				80ABBD372067EB3500CFC945 /* Q_create.swift */,
 			);
 			path = logic;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 				8068494820388FF400BD0482 /* riddleVC.swift in Sources */,
 				80A6C7782046F3E0007EF44E /* HomePageVC.swift in Sources */,
 				8025064020385940009E6355 /* AppDelegate.swift in Sources */,
-				80ABBD382067EB3500CFC945 /* geometricQ_json.swift in Sources */,
+				80ABBD382067EB3500CFC945 /* Q_create.swift in Sources */,
 				80124A0A20809193007E8CF8 /* CorrectAnswerVC.swift in Sources */,
 				80D4468D2052C186000B264B /* riddlesListVC2.swift in Sources */,
 				80ABBD482068224E00CFC945 /* Question.swift in Sources */,

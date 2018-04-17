@@ -23,6 +23,17 @@ class Question_Geometry: Question {
         self.Attempts = Attempts
     }
     
+    init(Title:String , Number:Int , Explantion:String,
+         Answer_Correct:Int, Attempts:Int, Picture:String, isCurrect: Bool) {
+        self.Picture = Picture
+        super.init(Title: Title)
+        self.Title = Title
+        self.Number = Number
+        self.Explanation = Explantion
+        self.Answer_Correct = Answer_Correct
+        self.Attempts = Attempts
+    }
+    
     required convenience init(coder aDecoder: NSCoder) {
         let Number = aDecoder.decodeInteger(forKey: "Number")
         let Title1 = aDecoder.decodeObject(forKey: "Title") as! String
@@ -31,10 +42,11 @@ class Question_Geometry: Question {
         let Attempts = aDecoder.decodeInteger(forKey: "Attempts")
        // let Picture = aDecoder.decodeObject(forKey: "Picture") as! String
         var Picture  = aDecoder.decodeObject(forKey: "Picture")
+        let isCurrect  = aDecoder.decodeObject(forKey: "isCurrect")
         if Picture == nil {
             Picture = ""
         }
-        self.init(Title: Title1, Number: Number, Explantion: Explanation, Answer_Correct: Answer_Correct, Attempts: Attempts, Picture: Picture as! String)
+        self.init(Title: Title1, Number: Number, Explantion: Explanation, Answer_Correct: Answer_Correct, Attempts: Attempts, Picture: Picture as! String, isCurrect: isCurrect as! Bool)
     }
     
     override func encode(with aCoder: NSCoder) {
@@ -45,6 +57,7 @@ class Question_Geometry: Question {
         aCoder.encode(Attempts, forKey: "Attempts")
         aCoder.encode(isCurrect, forKey: "isCurrect")
         aCoder.encode(Picture, forKey: "Picture")
+        aCoder.encode(isCurrect, forKey: "isCurrect")
     }
 
     

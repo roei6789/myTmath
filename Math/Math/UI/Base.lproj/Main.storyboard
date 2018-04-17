@@ -1490,6 +1490,7 @@
                         <viewLayoutGuide key="safeArea" id="JWt-vh-Q9z"/>
                     </view>
                     <connections>
+                        <outlet property="myCollectionView" destination="92f-cf-zjV" id="Lrs-TT-m18"/>
                         <segue destination="CeR-Nd-kYw" kind="show" identifier="toRiddle_G" id="f0l-57-9br"/>
                         <segue destination="KHj-SN-7pV" kind="show" identifier="toRiddle_TS1" id="0QJ-hX-qji"/>
                         <segue destination="6Qp-1U-N1A" kind="show" identifier="toRiddle_TS2" id="7Su-vh-DCm"/>

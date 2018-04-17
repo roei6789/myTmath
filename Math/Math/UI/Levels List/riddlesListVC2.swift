@@ -15,9 +15,10 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     var thisWorldLevels : [ Question] = []
     var selectedWorld = -1
     
+    //UI initiolize
+    @IBOutlet weak var myCollectionView: UICollectionView!
     
-//    var myIndex = 0
-//    var riddles = ["1","2","3","4","5","6","7","8","9","10","11"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,12 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
         selectedWorld = thisGame.SelectedWorld
         thisWorldLevels = thisGame.WorldsList[thisGame.SelectedWorld].Array_Questions
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        selectedWorld = thisGame.SelectedWorld
+        thisWorldLevels = thisGame.WorldsList[thisGame.SelectedWorld].Array_Questions
+         //self.myCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
