@@ -55,7 +55,7 @@ class Q_create{
                 Explantion: "בשרטוט מסתתרות צורות הנדסיות רבות. כמה מעויינים אתה רואה?",
                 Answer_Correct:9 ,
                 Attempts: 0,
-                Picture: "q5.png"
+                Picture: "q4.png"
         )
         let QG6 =
             Question_Geometry.init(
@@ -64,7 +64,7 @@ class Q_create{
                 Explantion:"בשרטוט מסתתרות צורות הנדסיות רבות. כמה טרפזים אתה רואה?" ,
                 Answer_Correct:18 ,
                 Attempts: 0,
-                Picture: "q6.png"
+                Picture: "q4.png"
         )
         
         let QG7 =
@@ -74,7 +74,7 @@ class Q_create{
                 Explantion: "כמה ריבועים בגדלים שונים מסתתרים בשרטוט?",
                 Answer_Correct:14 ,
                 Attempts: 0,
-                Picture: "q7.png"
+                Picture: "q5.png"
         )
         let QG8 =
             Question_Geometry.init(
@@ -83,7 +83,7 @@ class Q_create{
                 Explantion: "כמה ריבועים בגדלים שונים מסתתרים בשרטוט?",
                 Answer_Correct: 30,
                 Attempts:0 ,
-                Picture: "q8.png"
+                Picture: "q6.png"
         )
         
         let QG9 =
@@ -93,7 +93,7 @@ class Q_create{
                 Explantion:"כמה ריבועים בגדלים שונים מסתתרים בשרטוט?" ,
                 Answer_Correct:55 ,
                 Attempts:0 ,
-                Picture: "q9.png"
+                Picture: "q7.png"
         )
         let QG10 =
             Question_Geometry.init(
@@ -102,7 +102,7 @@ class Q_create{
                 Explantion: "מעוין מחולק למעוינים קטנים. כמה מעוינים בגדלים שונים מסתתרים בשרטוט?",
                 Answer_Correct:30 ,
                 Attempts:0 ,
-                Picture: "q10.png"
+                Picture: "q8.png"
         )
         let QG11 =
             Question_Geometry.init(
@@ -111,7 +111,7 @@ class Q_create{
                 Explantion: "המלבן מחולק ל12 ריבועים. כמה מלבנים שונים אפשר למצוא בשרטוט?",
                 Answer_Correct: 40,
                 Attempts:0 ,
-                Picture: "q11.png"
+                Picture: "q9.png"
         )
         let QG12 =
             Question_Geometry.init(
@@ -120,7 +120,7 @@ class Q_create{
                 Explantion:"כמה מעוינים מסתתרים בשרטוט?",
                 Answer_Correct: 21,
                 Attempts: 0,
-                Picture: "q12.png"
+                Picture: "q10.png"
         )
         let QG13 =
             Question_Geometry.init(
@@ -129,7 +129,7 @@ class Q_create{
                 Explantion:"במחומש שורטטו אלכסונים, כך נוצרו משולשים רבים. כמה משולשים בשרטוט?",
                 Answer_Correct: 35,
                 Attempts: 0,
-                Picture: "q13.png"
+                Picture: "q11.png"
         )
         let QG14 =
             Question_Geometry.init(
@@ -138,7 +138,7 @@ class Q_create{
                 Explantion:"בתוך השרטוט מסתתרים טרפזים רבים. כמה טרפזים מסתתרים?",
                 Answer_Correct: 57,
                 Attempts: 0,
-                Picture: "q14.png"
+                Picture: "q12.png"
         )
         let Question_Geometry_array = [QG1,QG2,QG3,QG4,QG5,QG6,QG7,QG8,QG9,QG10,QG11,QG12,QG13,QG14]
         return(Question_Geometry_array)

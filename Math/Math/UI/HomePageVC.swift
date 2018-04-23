@@ -40,9 +40,13 @@ class HomePageVC: UIViewController {
     }
     
     @IBAction func onClickAchivments(_ sender: Any) {
+         performSegue(withIdentifier: "showAchievements", sender: self)
+        
     }
     
     @IBAction func onClickAbout(_ sender: Any) {
+        performSegue(withIdentifier: "showAboutView", sender: self)
+        
     }
     
     @IBAction func onClickSettings(_ sender: Any) {

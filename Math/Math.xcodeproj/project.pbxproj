@@ -34,6 +34,7 @@
 		80C7413620716A54001A7C93 /* ThinkNSolve_1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */; };
 		80D4468B2052B77E000B264B /* SettingsPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4468A2052B77E000B264B /* SettingsPopupVC.swift */; };
 		80D4468D2052C186000B264B /* riddlesListVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4468C2052C186000B264B /* riddlesListVC2.swift */; };
+		80DE625F208E56CF00EB41CE /* MyAchievementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DE625E208E56CF00EB41CE /* MyAchievementsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkNSolve_1VC.swift; sourceTree = "<group>"; };
 		80D4468A2052B77E000B264B /* SettingsPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopupVC.swift; sourceTree = "<group>"; };
 		80D4468C2052C186000B264B /* riddlesListVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddlesListVC2.swift; sourceTree = "<group>"; };
+		80DE625E208E56CF00EB41CE /* MyAchievementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAchievementsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				8089599420778DAD0036C296 /* WorldsList */,
 				8089599520778DD00036C296 /* Levels List */,
 				8089599620778E050036C296 /* Levels */,
+				80DE625E208E56CF00EB41CE /* MyAchievementsVC.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				8025064020385940009E6355 /* AppDelegate.swift in Sources */,
 				80ABBD382067EB3500CFC945 /* Q_create.swift in Sources */,
 				80124A0A20809193007E8CF8 /* CorrectAnswerVC.swift in Sources */,
+				80DE625F208E56CF00EB41CE /* MyAchievementsVC.swift in Sources */,
 				80D4468D2052C186000B264B /* riddlesListVC2.swift in Sources */,
 				80ABBD482068224E00CFC945 /* Question.swift in Sources */,
 				80278CF6204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift in Sources */,

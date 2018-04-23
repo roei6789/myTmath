@@ -66,6 +66,11 @@ class Game {
         return  points
     }
     
+    func getPointsPerWorld(worldNum : Int) -> Int{
+        let points = WorldsList[worldNum - 1].getUserPoints()
+        return  points
+    }
+    
     // MARK: Restore Data Methods
     func getDataFromLocaldb(){
         let userDefaults = UserDefaults.standard

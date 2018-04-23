@@ -31,6 +31,9 @@ class riddleVC: UIViewController {
     var correctAnwer : Int = -1
     //var attemps : Int =  -1
     var isCorrect = false
+    //back from popup indicator
+    var backFromPopup = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +62,12 @@ class riddleVC: UIViewController {
         center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         center.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if backFromPopup {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     
@@ -139,6 +148,7 @@ class riddleVC: UIViewController {
         }
     }
     
+    // MARK: Private Methods.
     func correctAnswer (){
          performSegue(withIdentifier: "showCorrectAnswerView", sender: self)
         thisQuestion?.isCurrect = true
@@ -150,5 +160,8 @@ class riddleVC: UIViewController {
         performSegue(withIdentifier: "showWrongAnswerView", sender: self)
     }
  
+    func onClickBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }

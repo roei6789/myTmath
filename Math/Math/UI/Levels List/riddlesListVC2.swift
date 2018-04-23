@@ -31,7 +31,7 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidAppear(_ animated: Bool) {
         selectedWorld = thisGame.SelectedWorld
         thisWorldLevels = thisGame.WorldsList[thisGame.SelectedWorld].Array_Questions
-         //self.myCollectionView.reloadData()
+         self.myCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,6 +43,9 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
         cell.nuberLabel.text = String(thisWorldLevels[indexPath.row].Number)
         if thisWorldLevels[indexPath.row].isCurrect {
             cell.backgroundColor = UIColor.green
+        }
+        else{
+            cell.backgroundColor = UIColor.clear
         }
         return cell
     }
@@ -78,16 +81,10 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
             performSegue(withIdentifier: "toRiddle_TS2", sender: self)
         }
         
-//        switch type(of: ques) {
-//        case is Question_Geometry:
-//            performSegue(withIdentifier: "toRiddle", sender: self)
-//        case is Question_Thinks_solve:
-//            performSegue(withIdentifier: "toRiddle", sender: self)
-//        case is Question_Thinks_solve_2:
-//            performSegue(withIdentifier: "toRiddle", sender: self)
-//        default:
-//            performSegue(withIdentifier: "toRiddle", sender: self)
-//        }
+    }
+    
+    // MARK: Private Methods.
+    func toNextQuestion(){
         
     }
 }
