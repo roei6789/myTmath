@@ -22,6 +22,8 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //ui inisialize
+        navigationController?.navigationBar.isHidden = true
         //initiolize variables
         selectedWorld = thisGame.SelectedWorld
         thisWorldLevels = thisGame.WorldsList[thisGame.SelectedWorld].Array_Questions
@@ -40,12 +42,15 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RiddlesCollectionViewCell2", for: indexPath) as! RiddlesCollectionViewCell2
+        cell.backgroundColor = UIColor.clear
+        cell.nuberLabel.isHidden = false
         cell.nuberLabel.text = String(thisWorldLevels[indexPath.row].Number)
         if thisWorldLevels[indexPath.row].isCurrect {
-            cell.backgroundColor = UIColor.green
+            cell.img.image = UIImage(named: "oval_riddels_v")
+            cell.nuberLabel.isHidden = true
         }
         else{
-            cell.backgroundColor = UIColor.clear
+            cell.img.image = UIImage(named: "Oval_riddels")
         }
         return cell
     }
@@ -86,6 +91,9 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     // MARK: Private Methods.
     func toNextQuestion(){
         
+    }
+    @IBAction func onClickBack(_ sender: Any) {
+         navigationController?.popViewController(animated: true)
     }
 }
 

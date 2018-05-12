@@ -18,8 +18,13 @@ class riddleVC: UIViewController {
     @IBOutlet weak var answerField: UITextField!
     @IBOutlet weak var checkButton: UIButton!
     
-    @IBOutlet weak var questionViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var answerViewTop: NSLayoutConstraint!
+    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    @IBOutlet weak var image_top_const: NSLayoutConstraint!
+    
+//    @IBOutlet weak var questionViewHeight: NSLayoutConstraint!
+//    @IBOutlet weak var answerViewTop: NSLayoutConstraint!
     
     //initiolize variables
     let thisGame = Game.sharedInstance
@@ -49,8 +54,11 @@ class riddleVC: UIViewController {
         
         //UI initiolize
         //navigation bar
-//        self.navigationController?.isNavigationBarHidden = true
-        self.questionViewHeight.constant = (self.view.frame.height / 4 ) * 3
+        self.navigationController?.isNavigationBarHidden = true
+        //UI - text field
+        answerField.layer.cornerRadius = 13
+        answerField.layer.borderWidth = CGFloat(2)
+        answerField.layer.borderColor = UIColor.black.cgColor
         //question data
         self.riddleTitle.text = thisQuestion?.Title
         self.riddleQuestion.text = thisQuestion?.Explanation
@@ -98,7 +106,10 @@ class riddleVC: UIViewController {
     let keyboardHeight = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.height
     
     UIView.animate(withDuration: 0.8, animations: {
-    self.answerView.frame.origin.y = self.view.frame.height - keyboardHeight - self.answerView.frame.height
+//    self.answerView.frame.origin.y = self.view.frame.height - keyboardHeight - self.answerView.frame.height
+        self.riddleQuestion.isHidden = true
+        self.image_top_const.constant = CGFloat(5)
+        self.answerView.frame.origin.y = (self.answerView.frame.origin.y - 130)
         self.view.layoutIfNeeded()
     }, completion: { (complete) in})
     }//keyboard Did Show
@@ -106,7 +117,11 @@ class riddleVC: UIViewController {
     @objc func keyboardWillHide (notification : Notification){
     //position Next Button when keyBoard disappears
         UIView.animate(withDuration: 0.8, animations: {
-            self.answerView.frame.origin.y = self.questionViewHeight.constant
+            //self.answerView.frame.origin.y = self.questionViewHeight.constant
+            self.riddleQuestion.isHidden = false
+            self.image_top_const.constant = CGFloat(115)
+            //move up answer filed - change this
+            self.answerView.frame.origin.y = (self.answerView.frame.origin.y + 130)
             self.view.layoutIfNeeded()
         }, completion: { (complete) in})
         
@@ -159,9 +174,11 @@ class riddleVC: UIViewController {
     func wrongAnswer(){
         performSegue(withIdentifier: "showWrongAnswerView", sender: self)
     }
- 
-    func onClickBack(){
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func onClickPause(_ sender: Any) {
+    }
+    
+    @IBAction func onClickBackButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 
 }

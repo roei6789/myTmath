@@ -30,6 +30,13 @@
 		80ABBD4C2068224E00CFC945 /* Question_Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD462068224E00CFC945 /* Question_Geometry.swift */; };
 		80ABBD4D2068224E00CFC945 /* Worlds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80ABBD472068224E00CFC945 /* Worlds.swift */; };
 		80AE0297204AFA9D0025754F /* HomaPageVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AE0296204AFA9D0025754F /* HomaPageVC2.swift */; };
+		80B596CE20A47E9C004FEE79 /* Assistant-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80B596C820A47E9C004FEE79 /* Assistant-ExtraLight.ttf */; };
+		80B596CF20A47E9C004FEE79 /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80B596C920A47E9C004FEE79 /* Assistant-ExtraBold.ttf */; };
+		80B596D020A47E9C004FEE79 /* Assistant-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80B596CA20A47E9C004FEE79 /* Assistant-Light.ttf */; };
+		80B596D120A47E9C004FEE79 /* Assistant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80B596CB20A47E9C004FEE79 /* Assistant-Regular.ttf */; };
+		80B596D220A47E9C004FEE79 /* Assistant-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80B596CC20A47E9C004FEE79 /* Assistant-Bold.ttf */; };
+		80B596D320A47E9C004FEE79 /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80B596CD20A47E9C004FEE79 /* Assistant-SemiBold.ttf */; };
+		80C2934520A1BEF8004D57D0 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2934420A1BEF8004D57D0 /* AboutVC.swift */; };
 		80C7413320711BA9001A7C93 /* ThinkNSolve_2_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7413220711BA8001A7C93 /* ThinkNSolve_2_VC.swift */; };
 		80C7413620716A54001A7C93 /* ThinkNSolve_1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */; };
 		80D4468B2052B77E000B264B /* SettingsPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4468A2052B77E000B264B /* SettingsPopupVC.swift */; };
@@ -84,6 +91,13 @@
 		80ABBD462068224E00CFC945 /* Question_Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question_Geometry.swift; sourceTree = "<group>"; };
 		80ABBD472068224E00CFC945 /* Worlds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worlds.swift; sourceTree = "<group>"; };
 		80AE0296204AFA9D0025754F /* HomaPageVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomaPageVC2.swift; sourceTree = "<group>"; };
+		80B596C820A47E9C004FEE79 /* Assistant-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-ExtraLight.ttf"; sourceTree = "<group>"; };
+		80B596C920A47E9C004FEE79 /* Assistant-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-ExtraBold.ttf"; sourceTree = "<group>"; };
+		80B596CA20A47E9C004FEE79 /* Assistant-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-Light.ttf"; sourceTree = "<group>"; };
+		80B596CB20A47E9C004FEE79 /* Assistant-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-Regular.ttf"; sourceTree = "<group>"; };
+		80B596CC20A47E9C004FEE79 /* Assistant-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-Bold.ttf"; sourceTree = "<group>"; };
+		80B596CD20A47E9C004FEE79 /* Assistant-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Assistant-SemiBold.ttf"; sourceTree = "<group>"; };
+		80C2934420A1BEF8004D57D0 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		80C7413220711BA8001A7C93 /* ThinkNSolve_2_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkNSolve_2_VC.swift; sourceTree = "<group>"; };
 		80C7413520716A54001A7C93 /* ThinkNSolve_1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkNSolve_1VC.swift; sourceTree = "<group>"; };
 		80D4468A2052B77E000B264B /* SettingsPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopupVC.swift; sourceTree = "<group>"; };
@@ -139,6 +153,7 @@
 		8025063E20385940009E6355 /* Math */ = {
 			isa = PBXGroup;
 			children = (
+				80B596C720A47E80004FEE79 /* font */,
 				8025063F20385940009E6355 /* AppDelegate.swift */,
 				8025064620385940009E6355 /* Assets.xcassets */,
 				8025064820385940009E6355 /* LaunchScreen.storyboard */,
@@ -213,6 +228,19 @@
 			path = logic;
 			sourceTree = "<group>";
 		};
+		80B596C720A47E80004FEE79 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				80B596CC20A47E9C004FEE79 /* Assistant-Bold.ttf */,
+				80B596C920A47E9C004FEE79 /* Assistant-ExtraBold.ttf */,
+				80B596C820A47E9C004FEE79 /* Assistant-ExtraLight.ttf */,
+				80B596CA20A47E9C004FEE79 /* Assistant-Light.ttf */,
+				80B596CB20A47E9C004FEE79 /* Assistant-Regular.ttf */,
+				80B596CD20A47E9C004FEE79 /* Assistant-SemiBold.ttf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
 		80D4468E2052C25D000B264B /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +252,7 @@
 				8089599520778DD00036C296 /* Levels List */,
 				8089599620778E050036C296 /* Levels */,
 				80DE625E208E56CF00EB41CE /* MyAchievementsVC.swift */,
+				80C2934420A1BEF8004D57D0 /* AboutVC.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -335,9 +364,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B596D020A47E9C004FEE79 /* Assistant-Light.ttf in Resources */,
+				80B596CF20A47E9C004FEE79 /* Assistant-ExtraBold.ttf in Resources */,
 				8025064A20385940009E6355 /* LaunchScreen.storyboard in Resources */,
 				8025064720385940009E6355 /* Assets.xcassets in Resources */,
+				80B596D320A47E9C004FEE79 /* Assistant-SemiBold.ttf in Resources */,
+				80B596D120A47E9C004FEE79 /* Assistant-Regular.ttf in Resources */,
 				8025064520385940009E6355 /* Main.storyboard in Resources */,
+				80B596D220A47E9C004FEE79 /* Assistant-Bold.ttf in Resources */,
+				80B596CE20A47E9C004FEE79 /* Assistant-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +417,7 @@
 				80D4468D2052C186000B264B /* riddlesListVC2.swift in Sources */,
 				80ABBD482068224E00CFC945 /* Question.swift in Sources */,
 				80278CF6204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift in Sources */,
+				80C2934520A1BEF8004D57D0 /* AboutVC.swift in Sources */,
 				8068494A2038933C00BD0482 /* riddlesCell.swift in Sources */,
 				80C7413320711BA9001A7C93 /* ThinkNSolve_2_VC.swift in Sources */,
 				80124A0C208091B3007E8CF8 /* WrongtAnswerVC.swift in Sources */,

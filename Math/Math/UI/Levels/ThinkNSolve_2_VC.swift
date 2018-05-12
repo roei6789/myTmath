@@ -11,8 +11,8 @@ import UIKit
 class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     //effect variables
-    @IBOutlet weak var visualEffect: UIVisualEffectView!
-    var effect : UIVisualEffect!
+   // @IBOutlet weak var visualEffect: UIVisualEffectView!
+   // var effect : UIVisualEffect!
     
     @IBOutlet var rightAnwerView: UIView!
     
@@ -33,12 +33,15 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     @IBOutlet weak var signField_2: UITextField!
     @IBOutlet weak var signField_3: UITextField!
     
+    @IBOutlet weak var answerView: UIView!
     @IBOutlet weak var pickerView_1: UIPickerView!
     @IBOutlet weak var pickerView_2: UIPickerView!
     @IBOutlet weak var pickerView_3: UIPickerView!
     
-    @IBOutlet weak var leftClose: UIButton!
-    @IBOutlet weak var rightClose: UIButton!
+//    @IBOutlet weak var leftClose: UIButton!
+//    @IBOutlet weak var rightClose: UIButton!
+    @IBOutlet weak var leftBracket: UILabel!
+    @IBOutlet weak var rightBracket: UILabel!
     
     
     //initiolize variables
@@ -69,6 +72,7 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
                        ")X", "X(", ")x(",
                        "):", ":(", "):("]
     var indexOn = 0
+    var bracketColor : UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,8 +98,10 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         
         //UI initiolize
         //navigation bar
-//        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
+        answerView.alpha = 0
         
+        questionView.layer.cornerRadius = 14
         //question data
         self.titleLable.text  = thisQuestion?.Title
         self.questionLable.text = thisQuestion?.Explanation
@@ -106,24 +112,25 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         self.answerLable.text = "= " + answer
         
         //remove the visual effect at start
-        effect = visualEffect.effect
-        self.visualEffect.alpha = 0
-        visualEffect.effect = nil
+//        effect = visualEffect.effect
+//        self.visualEffect.alpha = 0
+//        visualEffect.effect = nil
         //accecability labels
         pickerView_1.accessibilityLabel = "1"
         pickerView_2.accessibilityLabel = "2"
         pickerView_3.accessibilityLabel = "3"
         //brackets buttons
-        self.rightClose.setTitleColor(UIColor.gray, for: UIControlState.normal)
-        self.rightClose.setTitleColor(UIColor.black, for: UIControlState.selected)
-        self.leftClose.setTitleColor(UIColor.gray, for: UIControlState.normal)
-        self.leftClose.setTitleColor(UIColor.black, for: UIControlState.selected)
-        
-        
-        
+        bracketColor = leftBracket.textColor
 
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        answerView.alpha = 0
+        animateAnswerViewIn(animateView: self.answerView)
+    }
+    
     // MARK: OnClick Methods.
+    
     @IBAction func onClickCheck(_ sender: Any) {
         if(checkValidInput()){
             //stop watch + visual effect
@@ -141,6 +148,9 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             }
         }
     }
+    @IBAction func onClickBackButton(_ sender: Any) {
+         navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func onClickLeftClose(_ sender: Any) {
     }
@@ -149,6 +159,7 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     
     @IBAction func onClickNextLevel(_ sender: Any) {
     }
+   
     @IBAction func onClickBack(_ sender: Any) {
         if isCorrect{
             animateOut(animateView: rightAnwerView)
@@ -156,13 +167,24 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         else {
             animateOut(animateView: wrongAnswerView)
         }
-        
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func onClickTryAgain(_ sender: Any) {
         //animate out
+        animateOut(animateView: wrongAnswerView)
     }
     
-
+    @IBAction func onClickField(_ sender: Any) {
+        answerView.isHidden = false
+    }
+    
+    @IBAction func onClickfieldTex(_ sender: Any) {
+        answerView.isHidden = false
+    }
+        @IBAction func onclicktextField(_ sender: Any) {
+        answerView.isHidden = false
+    }
+    
     @IBAction func onClickBracket(_ sender: UIButton) {
         if sender.isSelected{
           sender.isSelected = false
@@ -221,6 +243,7 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             self.signField_1.text = signes[row]
         case "2":
             self.signField_2.text = signesExtra[row]
+            checkBracket(row: row)
         case "3":
             self.signField_3.text = signes[row]
         default:
@@ -229,7 +252,46 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         
     }
     
+    func checkBracket(row : Int) {
+        let selectedSign :String = signesExtra[row]
+        let closeLeft :Bool = selectedSign.contains(")")
+        let closeRight :Bool = selectedSign.contains("(")
+        //left
+        if closeLeft{
+            self.leftBracket.textColor = UIColor.black
+            
+        }
+        else{
+            self.leftBracket.textColor = bracketColor
+            
+        }
+        //right
+        if closeRight{
+            self.rightBracket.textColor = UIColor.black
+        }
+        else{
+            self.rightBracket.textColor = bracketColor
+        }
+        
+    }
+    
     // MARK: Animation Methods.
+    //animate answer view
+    func animateAnswerViewIn( animateView : UIView){
+        animateView.frame.origin.y = self.view.frame.height
+        //incrising the size effect
+        //set opacity  to 0 =  transperent
+        animateView.alpha = 0
+        //animation
+        UIView.animate(withDuration: 1.0) {
+            //setting in position
+            animateView.frame.origin.y = self.view.frame.height - animateView.frame.height
+            // view visuality
+            animateView.alpha = 1
+           
+        }
+    }
+    
     //animate  view in
     func animateIn( animateView : UIView){
         self.view.addSubview(animateView)
@@ -241,8 +303,8 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         //animation
         UIView.animate(withDuration: 0.4) {
             //setting visual effece
-            self.visualEffect.effect = self.effect
-            self.visualEffect.alpha = 1
+//            self.visualEffect.effect = self.effect
+//            self.visualEffect.alpha = 1
             // view visuality
             animateView.alpha = 1
             //resizing setting view
@@ -254,9 +316,9 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     func animateOut(animateView : UIView){
         UIView.animate(withDuration: 0.3, animations: {
             animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-            self.visualEffect.alpha = 0
-            animateView.alpha = 0
-            self.visualEffect.effect = nil
+//            self.visualEffect.alpha = 0
+//            animateView.alpha = 0
+//            self.visualEffect.effect = nil
         }) { (succees : Bool) in
             animateView.removeFromSuperview()
         }

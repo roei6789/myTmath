@@ -11,18 +11,20 @@ import UIKit
 class HomePageVC: UIViewController {
 
     @IBOutlet weak var logoImg: UIImageView!
-    @IBOutlet var welcomeLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var myAchivmentsButton: UIButton!
     @IBOutlet weak var about: UIButton!
-  
+    @IBOutlet weak var pointsLabel: UIButton!
+    
     @IBOutlet var settingsView: UIView!
+    
     
     let thisGame = Game.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //ui inisialize
+        navigationController?.navigationBar.isHidden = true
         self.playButton.layer.cornerRadius = 10
         //settings - ui inisialize
         self.settingsView.layer.cornerRadius = 10
@@ -32,7 +34,8 @@ class HomePageVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
- 
+        let points = thisGame.getUserPoints()
+        pointsLabel.setTitle(String(points), for: pointsLabel.state)
         
     }
 
