@@ -14,9 +14,16 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
    // @IBOutlet weak var visualEffect: UIVisualEffectView!
    // var effect : UIVisualEffect!
     
-    @IBOutlet var rightAnwerView: UIView!
+    @IBOutlet var settingsView: UIView!
     
+    @IBOutlet var rightAnwerView: UIView!
+    @IBOutlet weak var retryButton: UIButton!
     @IBOutlet var wrongAnswerView: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    @IBOutlet weak var gameBarImage: UIImageView!
+    @IBOutlet weak var gameBarView: UIView!
+    @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLable: UILabel!
@@ -43,6 +50,9 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     @IBOutlet weak var leftBracket: UILabel!
     @IBOutlet weak var rightBracket: UILabel!
     
+    //timer
+    var time = 0
+    var timer = Timer()
     
     //initiolize variables
     let thisGame = Game.sharedInstance
@@ -98,8 +108,15 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         
         //UI initiolize
         //navigation bar
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.isHidden = true
         answerView.alpha = 0
+        //UI popup views
+        settingsView.layer.cornerRadius = 14
+        rightAnwerView.layer.cornerRadius = 14
+        wrongAnswerView.layer.cornerRadius = 14
+        retryButton.layer.borderColor = UIColor.black.cgColor
+        retryButton.layer.borderWidth = CGFloat(0.8)
+        retryButton.layer.cornerRadius = 8
         
         questionView.layer.cornerRadius = 14
         //question data
@@ -111,10 +128,6 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         self.numberLabel_3.text = Num_3
         self.answerLable.text = "= " + answer
         
-        //remove the visual effect at start
-//        effect = visualEffect.effect
-//        self.visualEffect.alpha = 0
-//        visualEffect.effect = nil
         //accecability labels
         pickerView_1.accessibilityLabel = "1"
         pickerView_2.accessibilityLabel = "2"
@@ -122,19 +135,29 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         //brackets buttons
         bracketColor = leftBracket.textColor
 
+        startTimer()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         answerView.alpha = 0
         animateAnswerViewIn(animateView: self.answerView)
+        //startTimer()
     }
     
     // MARK: OnClick Methods.
     
+    @IBAction func onClickPause(_ sender: Any) {
+        pauseTimer()
+        clearUIForPopup()
+        animateIn(animateView: settingsView)
+    }
+    
     @IBAction func onClickCheck(_ sender: Any) {
         if(checkValidInput()){
             //stop watch + visual effect
+            pauseTimer()
             thisQuestion?.Attempts = (thisQuestion?.Attempts)! + 1
+            clearUIForPopup()
             //check answer
             if(checkAnswer()){
                 //correct answer!!
@@ -155,25 +178,56 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     @IBAction func onClickLeftClose(_ sender: Any) {
     }
     
+    //UI changes for popup
+    func clearUIForPopup() {
+        gameBarImage.isHidden = true
+        gameBarView.isHidden = true
+        titleView.isHidden = true
+        questionView.isHidden = true
+        answerView.isHidden = true
+        backButton.isHidden = false
+    }
+    //UI changes for popup
+    func restoreUIFromPopup() {
+        gameBarImage.isHidden = false
+        gameBarView.isHidden = false
+        titleView.isHidden = false
+        questionView.isHidden = false
+        answerView.isHidden = false
+        backButton.isHidden = true
+    }
+    
     // MARK: Sub Views Methods.
     
     @IBAction func onClickNextLevel(_ sender: Any) {
+        navigationController?.popViewController(animated: false)
+        
     }
    
-    @IBAction func onClickBack(_ sender: Any) {
-        if isCorrect{
-            animateOut(animateView: rightAnwerView)
-        }
-        else {
-            animateOut(animateView: wrongAnswerView)
-        }
-        navigationController?.popViewController(animated: true)
+    @IBAction func onClickBackToLevel(_ sender: Any) {
+        animateOut(animateView: settingsView)
+        restoreUIFromPopup()
+        startTimer()
     }
+    
+//    @IBAction func onClickBack(_ sender: Any) {
+//        if isCorrect{
+//            animateOut(animateView: rightAnwerView)
+//        }
+//        else {
+//            animateOut(animateView: wrongAnswerView)
+//        }
+//        restoreUIFromPopup()
+//        navigationController?.popViewController(animated: true)
+//    }
     @IBAction func onClickTryAgain(_ sender: Any) {
         //animate out
         animateOut(animateView: wrongAnswerView)
+        restoreUIFromPopup()
+        startTimer()
     }
     
+     // MARK: onClick Methods.
     @IBAction func onClickField(_ sender: Any) {
         answerView.isHidden = false
     }
@@ -288,7 +342,6 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             animateView.frame.origin.y = self.view.frame.height - animateView.frame.height
             // view visuality
             animateView.alpha = 1
-           
         }
     }
     
@@ -310,6 +363,7 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
             //resizing setting view
             animateView.transform = CGAffineTransform.identity
         }
+        animateRetryIn(animateView: self.retryButton)
     }
     
     //animate  view out
@@ -317,13 +371,40 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         UIView.animate(withDuration: 0.3, animations: {
             animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
 //            self.visualEffect.alpha = 0
-//            animateView.alpha = 0
+            animateView.alpha = 0
 //            self.visualEffect.effect = nil
         }) { (succees : Bool) in
             animateView.removeFromSuperview()
         }
     }
 
+    func animateRetryIn( animateView : UIView){
+        retryButton.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        //animation
+        UIView.animate(withDuration: 0.4) {
+            self.retryButton.transform = CGAffineTransform.identity
+        }
+    }
+    
+    // MARK: Timer Methods.
+    func startTimer () {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerAddSecond), userInfo: nil, repeats: true)
+    }
+    
+    func pauseTimer() {
+        timer.invalidate()
+    }
+    
+    func stopTimer() {
+        timer.invalidate()
+        time = 0
+    }
+    
+    @objc func TimerAddSecond(){
+        time += 1
+        timerLabel.text = String(time)
+    }
+    
     // MARK: Keyboard Methods.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

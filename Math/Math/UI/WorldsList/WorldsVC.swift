@@ -10,6 +10,7 @@ import UIKit
 
 class WorldsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate  {
 
+    @IBOutlet weak var pointsLabel: UIButton!
     
     
     //initiolize variables
@@ -23,7 +24,13 @@ class WorldsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         navigationController?.navigationBar.isHidden = true
         //initiolize variables
          thisWorlds = thisGame.WorldsList
-       
+        let points = thisGame.getUserPoints()
+        pointsLabel.setTitle(String(points), for: pointsLabel.state)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let points = thisGame.getUserPoints()
+        pointsLabel.setTitle(String(points), for: pointsLabel.state)
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,8 +58,10 @@ class WorldsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       thisGame.SelectedWorld = indexPath.row 
-        performSegue(withIdentifier: "toRiddleList", sender: self)
+        if indexPath.row < 2 {
+            thisGame.SelectedWorld = indexPath.row
+            performSegue(withIdentifier: "toRiddleList", sender: self)
+        }
     }
 
     @IBAction func onClickBack(_ sender: Any) {

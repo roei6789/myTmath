@@ -27,7 +27,7 @@ class HomePageVC: UIViewController {
         navigationController?.navigationBar.isHidden = true
         self.playButton.layer.cornerRadius = 10
         //settings - ui inisialize
-        self.settingsView.layer.cornerRadius = 10
+        self.settingsView.layer.cornerRadius = 14
         
        // getUserData()
         

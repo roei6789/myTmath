@@ -10,6 +10,17 @@ import UIKit
 
 class ThinkNSolve_1VC: UIViewController {
 
+    @IBOutlet var settingsView: UIView!
+    
+    @IBOutlet var rightAnwerView: UIView!
+    @IBOutlet weak var retryButton: UIButton!
+    @IBOutlet var wrongAnswerView: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    @IBOutlet weak var gameBarImage: UIImageView!
+    @IBOutlet weak var gameBarView: UIView!
+    @IBOutlet weak var backButton: UIButton!
+    
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLable: UILabel!
     @IBOutlet weak var questionLable: UILabel!
@@ -22,6 +33,10 @@ class ThinkNSolve_1VC: UIViewController {
     
     @IBOutlet weak var titleViewHeightConst: NSLayoutConstraint!
     @IBOutlet weak var questionViewHeightConst: NSLayoutConstraint!
+    
+    //timer
+    var time = 0
+    var timer = Timer()
     
     //initiolize variables
     let thisGame = Game.sharedInstance
@@ -49,6 +64,13 @@ class ThinkNSolve_1VC: UIViewController {
         //UI initiolize
         //navigation bar
         self.navigationController?.isNavigationBarHidden = true
+        //UI popup views
+        settingsView.layer.cornerRadius = 14
+        rightAnwerView.layer.cornerRadius = 14
+        wrongAnswerView.layer.cornerRadius = 14
+        retryButton.layer.borderColor = UIColor.black.cgColor
+        retryButton.layer.borderWidth = CGFloat(0.8)
+        retryButton.layer.cornerRadius = 8
         //UI - text field
         answerField.layer.cornerRadius = 13
         answerField.layer.borderWidth = CGFloat(2)
@@ -64,27 +86,51 @@ class ThinkNSolve_1VC: UIViewController {
         center.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         center.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        
+        startTimer()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
 
+    // MARK: OnClick Methods.
     @IBAction func onClickCheck(_ sender: Any) {
+        self.view.endEditing(true)
         if(checkValidInput()){
             //stop watch + visual effect
+            pauseTimer()
             thisQuestion?.Attempts = (thisQuestion?.Attempts)! + 1
+            clearUIForPopup()
             //check answer
             if(checkAnswer()){
                 //correct answer!!
                 correctAnswer()
+                //animate in
+                animateIn(animateView: rightAnwerView)
             }
             else{
                 //Incorrect answer
                  wrongAnswer()
-                
             }
         }
     }
     @IBAction func onClickBackButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func onClickPause(_ sender: Any) {
+        pauseTimer()
+        clearUIForPopup()
+        animateIn(animateView: settingsView)
+    }
+    
+    @IBAction func onClickBackToLevel(_ sender: Any) {
+        animateOut(animateView: settingsView)
+        restoreUIFromPopup()
+        startTimer()
+    }
+    
     // MARK: Private Methods.
     fileprivate func checkAnswer() -> Bool{
         if let correct : Int = thisQuestion?.Answer_Correct{
@@ -108,16 +154,105 @@ class ThinkNSolve_1VC: UIViewController {
     }
     
     func correctAnswer (){
-        performSegue(withIdentifier: "showCorrectAnswerView", sender: self)
         thisQuestion?.isCurrect = true
         thisGame.Player?.addPoint()
         thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
     }
     
     func wrongAnswer(){
-        performSegue(withIdentifier: "showWrongAnswerView", sender: self)
+       animateIn(animateView: wrongAnswerView)
     }
-
+    
+    //UI changes for popup
+    func clearUIForPopup() {
+        gameBarImage.isHidden = true
+        gameBarView.isHidden = true
+        titleView.isHidden = true
+        questionView.isHidden = true
+        checkButton.isHidden = true
+        backButton.isHidden = false
+    }
+    //UI changes for popup
+    func restoreUIFromPopup() {
+        gameBarImage.isHidden = false
+        gameBarView.isHidden = false
+        titleView.isHidden = false
+        questionView.isHidden = false
+        checkButton.isHidden = false
+        backButton.isHidden = true
+    }
+    
+    // MARK: Sub Views Methods.
+    
+    @IBAction func onClickNextLevel(_ sender: Any) {
+        navigationController?.popViewController(animated: false)
+        
+    }
+    
+//    @IBAction func onClickBack(_ sender: Any) {
+//        if isCorrect{
+//            animateOut(animateView: rightAnwerView)
+//        }
+//        else {
+//            animateOut(animateView: wrongAnswerView)
+//        }
+//        restoreUIFromPopup()
+//        navigationController?.popViewController(animated: true)
+//    }
+    @IBAction func onClickTryAgain(_ sender: Any) {
+        //animate out
+        animateOut(animateView: wrongAnswerView)
+        restoreUIFromPopup()
+        startTimer()
+    }
+    
+    // MARK: Animation Methods.
+    //animate  view in
+    func animateIn( animateView : UIView){
+        self.view.addSubview(animateView)
+        animateView.center = self.view.center
+        //incrising the size effect
+        animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        //set opacity  to 0 =  transperent
+        animateView.alpha = 0
+        //animation
+        UIView.animate(withDuration: 0.4) {
+            animateView.alpha = 1
+            //resizing view
+            animateView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    //animate  view out
+    func animateOut(animateView : UIView){
+        UIView.animate(withDuration: 0.3, animations: {
+            animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            animateView.alpha = 0
+        }) { (succees : Bool) in
+            animateView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: Timer Methods.
+    func startTimer () {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerAddSecond), userInfo: nil, repeats: true)
+    }
+    
+    func pauseTimer() {
+        timer.invalidate()
+    }
+    
+    func stopTimer() {
+        timer.invalidate()
+        time = 0
+    }
+    
+    @objc func TimerAddSecond(){
+        time += 1
+        timerLabel.text = String(time)
+    }
+    
+    
     // MARK: Keyboard Methods.
     @objc func keyboardDidShow (notification : Notification){
         let info : NSDictionary = notification.userInfo! as NSDictionary

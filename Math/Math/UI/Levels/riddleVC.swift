@@ -9,7 +9,18 @@
 import UIKit
 
 class riddleVC: UIViewController {
+    
+    @IBOutlet var settingsView: UIView!
 
+    @IBOutlet var rightAnwerView: UIView!
+    @IBOutlet weak var retryButton: UIButton!
+    @IBOutlet var wrongAnswerView: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var gameBarImage: UIImageView!
+    @IBOutlet weak var gameBarView: UIView!
+    
     @IBOutlet weak var questionView: UIView!
     @IBOutlet weak var riddleTitle: UILabel!
     @IBOutlet weak var riddleQuestion: UILabel!
@@ -19,12 +30,12 @@ class riddleVC: UIViewController {
     @IBOutlet weak var checkButton: UIButton!
     
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var image_top_const: NSLayoutConstraint!
     
-//    @IBOutlet weak var questionViewHeight: NSLayoutConstraint!
-//    @IBOutlet weak var answerViewTop: NSLayoutConstraint!
+    //timer
+    var time = 0
+    var timer = Timer()
     
     //initiolize variables
     let thisGame = Game.sharedInstance
@@ -37,7 +48,7 @@ class riddleVC: UIViewController {
     //var attemps : Int =  -1
     var isCorrect = false
     //back from popup indicator
-    var backFromPopup = false
+    //var backFromPopup = false
     
     
     override func viewDidLoad() {
@@ -54,7 +65,14 @@ class riddleVC: UIViewController {
         
         //UI initiolize
         //navigation bar
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.navigationBar.isHidden = true
+        //popup views
+        settingsView.layer.cornerRadius = 14
+        rightAnwerView.layer.cornerRadius = 14
+        wrongAnswerView.layer.cornerRadius = 14
+        retryButton.layer.borderColor = UIColor.black.cgColor
+        retryButton.layer.borderWidth = CGFloat(0.8)
+        retryButton.layer.cornerRadius = 8
         //UI - text field
         answerField.layer.cornerRadius = 13
         answerField.layer.borderWidth = CGFloat(2)
@@ -70,14 +88,12 @@ class riddleVC: UIViewController {
         center.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         center.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
 
+        startTimer()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if backFromPopup {
-            self.navigationController?.popViewController(animated: true)
-        }
+//        startTimer()
     }
-    
     
     // MARK: Private Methods.
     fileprivate func checkAnswer() -> Bool{
@@ -101,21 +117,141 @@ class riddleVC: UIViewController {
         return valid
     }
    
-    @objc func keyboardDidShow (notification : Notification){
-    let info : NSDictionary = notification.userInfo! as NSDictionary
-    let keyboardHeight = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.height
+ 
+    // MARK: OnClick Methods.
+    @IBAction func onClickCheck(_ sender: Any) {
+        self.view.endEditing(true)
+        if(checkValidInput()){
+            //stop watch + visual effect
+            thisQuestion?.Attempts = (thisQuestion?.Attempts)! + 1
+            //check answer
+            clearUIForPopup()
+            if(checkAnswer()){
+                //correct answer!!
+                //update question
+                correctAnswer()
+                //animate in
+                animateIn(animateView: rightAnwerView)
+            }
+            else{
+                //Incorrect answer
+                wrongAnswer()
+            }
+        }
+    }
     
-    UIView.animate(withDuration: 0.8, animations: {
-//    self.answerView.frame.origin.y = self.view.frame.height - keyboardHeight - self.answerView.frame.height
-        self.riddleQuestion.isHidden = true
-        self.image_top_const.constant = CGFloat(5)
-        self.answerView.frame.origin.y = (self.answerView.frame.origin.y - 130)
-        self.view.layoutIfNeeded()
-    }, completion: { (complete) in})
+    // MARK: Private Methods.
+    //update question
+    func correctAnswer (){
+        thisQuestion?.isCurrect = true
+        thisGame.Player?.addPoint()
+        thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
+    }
+    
+    func wrongAnswer(){
+        animateIn(animateView: wrongAnswerView)
+    }
+    @IBAction func onClickPause(_ sender: Any) {
+        pauseTimer()
+        clearUIForPopup()
+        animateIn(animateView: settingsView)
+}
+    
+    @IBAction func onClickBackButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func onClickNextLevel(_ sender: Any) {
+        navigationController?.popViewController(animated: false)
+        
+    }
+    
+    @IBAction func onClickBackToLevel(_ sender: Any) {
+        animateOut(animateView: settingsView)
+        restoreUIFromPopup()
+        startTimer()
+    }
+    
+//    @IBAction func onClickBack(_ sender: Any) {
+//        if isCorrect{
+//            animateOut(animateView: rightAnwerView)
+//        }
+//        else {
+//            animateOut(animateView: wrongAnswerView)
+//        }
+//        restoreUIFromPopup()
+//        navigationController?.popViewController(animated: true)
+//    }
+    
+    @IBAction func onClickTryAgain(_ sender: Any) {
+        //animate out
+        animateOut(animateView: wrongAnswerView)
+        restoreUIFromPopup()
+        startTimer()
+    }
+    
+    //animate  view in
+    func animateIn( animateView : UIView){
+        self.view.addSubview(animateView)
+        animateView.center = self.view.center
+        //incrising the size effect
+        animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        //set opacity  to 0 =  transperent
+        animateView.alpha = 0
+        //animation
+        UIView.animate(withDuration: 0.4) {
+            animateView.alpha = 1
+            //resizing view
+            animateView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    //animate  view out
+    func animateOut(animateView : UIView){
+        UIView.animate(withDuration: 0.3, animations: {
+            animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            //            self.visualEffect.alpha = 0
+            animateView.alpha = 0
+            //            self.visualEffect.effect = nil
+        }) { (succees : Bool) in
+            animateView.removeFromSuperview()
+        }
+    }
+
+    // MARK: private Methods.
+    //UI changes for popup
+    func clearUIForPopup() {
+        gameBarImage.isHidden = true
+        gameBarView.isHidden = true
+        questionView.isHidden = true
+        answerView.isHidden = true
+        backButton.isHidden = false
+    }
+    //UI changes for popup
+    func restoreUIFromPopup() {
+        gameBarImage.isHidden = false
+        gameBarView.isHidden = false
+        questionView.isHidden = false
+        answerView.isHidden = false
+        backButton.isHidden = true
+    }
+    
+    // MARK: keyboard Methods.
+    @objc func keyboardDidShow (notification : Notification){
+        let info : NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardHeight = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.height
+        
+        UIView.animate(withDuration: 0.8, animations: {
+            //    self.answerView.frame.origin.y = self.view.frame.height - keyboardHeight - self.answerView.frame.height
+            self.riddleQuestion.isHidden = true
+            self.image_top_const.constant = CGFloat(5)
+            self.answerView.frame.origin.y = (self.answerView.frame.origin.y - 130)
+            self.view.layoutIfNeeded()
+        }, completion: { (complete) in})
     }//keyboard Did Show
     
     @objc func keyboardWillHide (notification : Notification){
-    //position Next Button when keyBoard disappears
+        //position Next Button when keyBoard disappears
         UIView.animate(withDuration: 0.8, animations: {
             //self.answerView.frame.origin.y = self.questionViewHeight.constant
             self.riddleQuestion.isHidden = false
@@ -141,44 +277,23 @@ class riddleVC: UIViewController {
         return true
     }
 
-    // MARK: OnClick Methods.
-    @IBAction func onClickCheck(_ sender: Any) {
-        if(checkValidInput()){
-            //stop watch + visual effect
-            thisQuestion?.Attempts = (thisQuestion?.Attempts)! + 1
-            //check answer
-            if(checkAnswer()){
-                //correct answer!!
-                correctAnswer()
-                //update question
-                //animate in
-               // animateIn(animateView: rightAnwerView)
-            }
-            else{
-                //Incorrect answer
-                wrongAnswer()
-                //update question
-                //animateIn(animateView: wrongAnswerView)
-            }
-        }
+    // MARK: Timer Methods.
+    func startTimer () {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerAddSecond), userInfo: nil, repeats: true)
     }
     
-    // MARK: Private Methods.
-    func correctAnswer (){
-         performSegue(withIdentifier: "showCorrectAnswerView", sender: self)
-        thisQuestion?.isCurrect = true
-        thisGame.Player?.addPoint()
-        thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
+    func pauseTimer() {
+        timer.invalidate()
     }
     
-    func wrongAnswer(){
-        performSegue(withIdentifier: "showWrongAnswerView", sender: self)
-    }
-    @IBAction func onClickPause(_ sender: Any) {
+    func stopTimer() {
+        timer.invalidate()
+        time = 0
     }
     
-    @IBAction func onClickBackButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    @objc func TimerAddSecond(){
+        time += 1
+        timerLabel.text = String(time)
     }
-
+    
 }

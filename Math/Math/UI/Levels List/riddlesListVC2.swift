@@ -17,6 +17,7 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
     
     //UI initiolize
     @IBOutlet weak var myCollectionView: UICollectionView!
+    @IBOutlet weak var pointsLabel: UIButton!
     
 
     
@@ -27,13 +28,17 @@ class riddlesListVC2: UIViewController, UICollectionViewDataSource, UICollection
         //initiolize variables
         selectedWorld = thisGame.SelectedWorld
         thisWorldLevels = thisGame.WorldsList[thisGame.SelectedWorld].Array_Questions
-        
+        let points = thisGame.getUserPoints()
+        pointsLabel.setTitle(String(points), for: pointsLabel.state)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         selectedWorld = thisGame.SelectedWorld
         thisWorldLevels = thisGame.WorldsList[thisGame.SelectedWorld].Array_Questions
          self.myCollectionView.reloadData()
+        let points = thisGame.getUserPoints()
+        pointsLabel.setTitle(String(points), for: pointsLabel.state)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
