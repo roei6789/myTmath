@@ -12,4 +12,5 @@ class worldsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var worldIMG: UIImageView!
     @IBOutlet weak var worlfLable: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
 }

@@ -45,13 +45,18 @@ class WorldsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "worldsCollectionViewCell", for: indexPath) as! worldsCollectionViewCell
+        cell.layer.cornerRadius = 4
         if (indexPath.row < thisWorlds.count) {
         let cellImag = UIImage (named: (self.thisWorlds[indexPath.row].picture))
         cell.worldIMG.image = cellImag //worldsIMG[indexPath.row]
         cell.worlfLable.text = self.thisWorlds[indexPath.row].Name //worldsTitle[indexPath.row]
+        let numOfRiddles = thisWorlds[indexPath.row].Array_Questions.count
+        let pointsInlevel = thisWorlds[indexPath.row].getUserPoints()
+        cell.pointsLabel.text = String(pointsInlevel) + " / " + String(numOfRiddles)
         }
         else{
             cell.worldIMG.image = UIImage(named: "level_lock")
+            cell.worldIMG.layer.cornerRadius = 8
             cell.worlfLable.text = "בקרוב..."
         }
         return cell

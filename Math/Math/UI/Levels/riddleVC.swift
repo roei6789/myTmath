@@ -152,6 +152,7 @@ class riddleVC: UIViewController {
         animateIn(animateView: wrongAnswerView)
     }
     @IBAction func onClickPause(_ sender: Any) {
+        self.view.endEditing(true)
         pauseTimer()
         clearUIForPopup()
         animateIn(animateView: settingsView)

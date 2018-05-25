@@ -120,6 +120,7 @@ class ThinkNSolve_1VC: UIViewController {
     }
     
     @IBAction func onClickPause(_ sender: Any) {
+        self.view.endEditing(true)
         pauseTimer()
         clearUIForPopup()
         animateIn(animateView: settingsView)

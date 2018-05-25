@@ -10,6 +10,8 @@ import UIKit
 
 class HomePageVC: UIViewController {
 
+    @IBOutlet weak var barView: UIView!
+    @IBOutlet weak var backButton: UIView!
     @IBOutlet weak var logoImg: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var myAchivmentsButton: UIButton!
@@ -53,44 +55,60 @@ class HomePageVC: UIViewController {
     }
     
     @IBAction func onClickSettings(_ sender: Any) {
-        animateIn()
+        clearUIForPopup()
+        animateIn(animateView: settingsView)
     }
     
     @IBAction func dismissSettings(_ sender: Any) {
-        animateOut()
+        animateOut(animateView: settingsView)
+        restoreUIFromPopup()
     }
     
     
     
     //animate settings view in
-    func animateIn(){
-        self.view.addSubview(settingsView)
-        settingsView.center = self.view.center
+    func animateIn( animateView : UIView){
+        self.view.addSubview(animateView)
+        animateView.center = self.view.center
         //incrising the size effect
-        settingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         //set opacity  to 0 =  transperent
-        settingsView.alpha = 0
-        
+        animateView.alpha = 0
         //animation
         UIView.animate(withDuration: 0.4) {
-            //setting visual effece
-            //self.visualEffect.effect = self.effect
-            //setting view visuality
-            self.settingsView.alpha = 1
-            //resizing setting view
-            self.settingsView.transform = CGAffineTransform.identity
+            animateView.alpha = 1
+            //resizing view
+            animateView.transform = CGAffineTransform.identity
         }
     }
     
     //animate settings view out
-    func animateOut(){
+    func animateOut(animateView : UIView){
         UIView.animate(withDuration: 0.3, animations: {
-            self.settingsView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
-            self.settingsView.alpha = 0
-           // self.visualEffect.effect = nil
+            animateView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            animateView.alpha = 0
         }) { (succees : Bool) in
-            self.settingsView.removeFromSuperview()
+            animateView.removeFromSuperview()
         }
     }
 
+    
+    //UI changes for popup
+    func clearUIForPopup() {
+        barView.isHidden = true
+        logoImg.isHidden = true
+        playButton.isHidden = true
+        about.isHidden = true
+        myAchivmentsButton.isHidden = true
+        backButton.isHidden = false
+    }
+    //UI changes for popup
+    func restoreUIFromPopup() {
+        barView.isHidden = false
+        logoImg.isHidden = false
+        playButton.isHidden = false
+        about.isHidden = false
+        myAchivmentsButton.isHidden = false
+        backButton.isHidden = true
+    }
 }
