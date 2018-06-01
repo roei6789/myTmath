@@ -186,6 +186,8 @@ class ThinkNSolve_1VC: UIViewController {
     // MARK: Sub Views Methods.
     
     @IBAction func onClickNextLevel(_ sender: Any) {
+        thisQuestion?.didPressNext = true
+        thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
         navigationController?.popViewController(animated: false)
         
     }
@@ -255,10 +257,7 @@ class ThinkNSolve_1VC: UIViewController {
     
     
     // MARK: Keyboard Methods.
-    @objc func keyboardDidShow (notification : Notification){
-        let info : NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardHeight = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.height
-        
+    @objc func keyboardDidShow (notification : Notification){        
         UIView.animate(withDuration: 0.8, animations: {
          //  self.titleViewHeightConst.constant = CGFloat(100)
             self.questionViewHeightConst.constant = CGFloat(100)

@@ -5,9 +5,6 @@
 //  Created by Maor Dascalu on 9.3.2018.
 //  Copyright © 2018 Aviv Maor. All rights reserved.
 //
-
-
-
 import Foundation
 
 class Question_Geometry: Question {

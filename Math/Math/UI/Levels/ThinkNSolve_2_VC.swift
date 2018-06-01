@@ -200,6 +200,8 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     // MARK: Sub Views Methods.
     
     @IBAction func onClickNextLevel(_ sender: Any) {
+        thisQuestion?.didPressNext = true
+        thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
         navigationController?.popViewController(animated: false)
         
     }

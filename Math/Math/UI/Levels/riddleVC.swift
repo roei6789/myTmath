@@ -32,6 +32,7 @@ class riddleVC: UIViewController {
     @IBOutlet weak var numberLabel: UILabel!
     
     @IBOutlet weak var image_top_const: NSLayoutConstraint!
+    @IBOutlet weak var answer_Top_Const: NSLayoutConstraint!
     
     //timer
     var time = 0
@@ -163,6 +164,8 @@ class riddleVC: UIViewController {
     }
     
     @IBAction func onClickNextLevel(_ sender: Any) {
+        thisQuestion?.didPressNext = true
+        thisGame.updateGame(user: thisGame.Player!, game: thisGame, worldNum: selectedWorld, levelNum: SelectedQuestion, question: thisQuestion!)
         navigationController?.popViewController(animated: false)
         
     }
@@ -239,16 +242,18 @@ class riddleVC: UIViewController {
     
     // MARK: keyboard Methods.
     @objc func keyboardDidShow (notification : Notification){
-        let info : NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardHeight = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.height
+//        let info : NSDictionary = notification.userInfo! as NSDictionary
+//        let keyboardHeight = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue.height
         
         UIView.animate(withDuration: 0.8, animations: {
             //    self.answerView.frame.origin.y = self.view.frame.height - keyboardHeight - self.answerView.frame.height
             self.riddleQuestion.isHidden = true
             self.image_top_const.constant = CGFloat(5)
-            self.answerView.frame.origin.y = (self.answerView.frame.origin.y - 130)
+            self.answer_Top_Const.constant = CGFloat(300)
+            //self.answerView.frame.origin.y = (self.answerView.frame.origin.y - 130)
             self.view.layoutIfNeeded()
         }, completion: { (complete) in})
+        
     }//keyboard Did Show
     
     @objc func keyboardWillHide (notification : Notification){
@@ -257,8 +262,9 @@ class riddleVC: UIViewController {
             //self.answerView.frame.origin.y = self.questionViewHeight.constant
             self.riddleQuestion.isHidden = false
             self.image_top_const.constant = CGFloat(115)
+            self.answer_Top_Const.constant = CGFloat(430)
             //move up answer filed - change this
-            self.answerView.frame.origin.y = (self.answerView.frame.origin.y + 130)
+           // self.answerView.frame.origin.y = (self.answerView.frame.origin.y + 130)
             self.view.layoutIfNeeded()
         }, completion: { (complete) in})
         
