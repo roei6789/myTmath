@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 class Game {
 
@@ -15,6 +16,11 @@ class Game {
     var SelectedWorld = -1
     var SelectedQuestion = -1
     static var sharedInstance = Game.init()
+    
+    //sounds & music
+    var musicPlayer : AVAudioPlayer = AVAudioPlayer()
+    
+    
     init(){
 //        //if there is a game stored in mobile data
 ////        let userDefaults = UserDefaults.standard
@@ -43,6 +49,27 @@ class Game {
         //call intialize method
         initWorlds()
         getDataFromLocaldb()
+        
+        //music & sounds
+        //sounds & music
+        do {
+            let audioPath = Bundle.main.path(forResource: "The xx Intro", ofType: "aac")
+            try musicPlayer = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
+            
+            //            let audioSession = AVAudioSession.sharedInstance()
+            //            do{
+            //                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+            //            }
+            //            catch{
+            //
+            //            }
+        }
+        catch{
+            print("could not find music")
+        }
+        musicPlayer.prepareToPlay()
+        musicPlayer.setVolume(0.5 , fadeDuration: 0.5)
+        musicPlayer.numberOfLoops = -1
    }//init
     
     func initWorlds (){

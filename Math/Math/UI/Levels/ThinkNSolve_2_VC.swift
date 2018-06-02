@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -15,6 +16,8 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
    // var effect : UIVisualEffect!
     
     @IBOutlet var settingsView: UIView!
+    @IBOutlet weak var volumeMusic: UISlider!
+    @IBOutlet weak var volumeSounds: UISlider!
     
     @IBOutlet var rightAnwerView: UIView!
     @IBOutlet weak var retryButton: UIButton!
@@ -53,6 +56,8 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     //timer
     var time = 0
     var timer = Timer()
+    //sounds & music
+    var player : AVAudioPlayer = AVAudioPlayer()
     
     //initiolize variables
     let thisGame = Game.sharedInstance
@@ -136,6 +141,8 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         bracketColor = leftBracket.textColor
 
         startTimer()
+        //sounds & music
+        player = thisGame.musicPlayer
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -257,6 +264,23 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         if (signField_1.text == operator_1 && signField_2.text == operator_2 && signField_3.text == operator_3){
             return true
         }
+        //check second way
+        var toCheck = ""
+        if (signField_2.text?.contains(")"))!{
+            toCheck = "("
+        }
+        toCheck = toCheck + numberLabel_1.text! + signField_1.text!
+        toCheck = toCheck + numberLabel_2.text! + signField_2.text!
+        toCheck = toCheck + numberLabel_3.text! + signField_3.text!
+        toCheck = toCheck + numberLabel_4.text!
+    
+        if (signField_2.text?.contains("("))!{
+            toCheck = toCheck + ")"
+        }
+        toCheck.replacingOccurrences(of: "X", with: "*")
+        toCheck.replacingOccurrences(of: ":", with: "/")
+        //now - if toCheck == answerLable.text! { return true }
+        
         return false
     }
     
@@ -415,6 +439,17 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         return true
+    }
+    // MARK: Music Methods.
+    
+    @IBAction func musicVolumeDidChange(_ sender: Any) {
+        let value = self.volumeMusic.value
+        player.setVolume(value, fadeDuration: 0.0)
+    }
+    
+    @IBAction func soundsVolumeDidChange(_ sender: Any) {
+        let value = self.volumeSounds.value
+        //player.setVolume(value, fadeDuration: 0.0)
     }
 
 }

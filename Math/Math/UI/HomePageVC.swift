@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomePageVC: UIViewController {
 
@@ -19,7 +20,11 @@ class HomePageVC: UIViewController {
     @IBOutlet weak var pointsLabel: UIButton!
     
     @IBOutlet var settingsView: UIView!
+    @IBOutlet weak var volumeMusic: UISlider!
+    @IBOutlet weak var volumeSounds: UISlider!
     
+    //sounds & music
+    var player : AVAudioPlayer = AVAudioPlayer()
     
     let thisGame = Game.sharedInstance
     
@@ -32,6 +37,11 @@ class HomePageVC: UIViewController {
         self.settingsView.layer.cornerRadius = 14
         
        // getUserData()
+        
+       //sounds & music
+        player = thisGame.musicPlayer
+        player.play()
+        
         
     }
     
@@ -92,6 +102,15 @@ class HomePageVC: UIViewController {
         }
     }
 
+    @IBAction func musicVolumeDidChange(_ sender: Any) {
+        let value = self.volumeMusic.value
+        player.setVolume(value, fadeDuration: 0.0)
+    }
+    
+    @IBAction func soundsVolumeDidChange(_ sender: Any) {
+        let value = self.volumeSounds.value
+        //player.setVolume(value, fadeDuration: 0.0)
+    }
     
     //UI changes for popup
     func clearUIForPopup() {

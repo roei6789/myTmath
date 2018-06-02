@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ThinkNSolve_1VC: UIViewController {
 
     @IBOutlet var settingsView: UIView!
+    @IBOutlet weak var volumeMusic: UISlider!
+    @IBOutlet weak var volumeSounds: UISlider!
     
     @IBOutlet var rightAnwerView: UIView!
     @IBOutlet weak var retryButton: UIButton!
@@ -49,6 +52,8 @@ class ThinkNSolve_1VC: UIViewController {
     var attemps : Int =  -1
     var isCorrect = false
     
+    //sounds & music
+    var player : AVAudioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +93,8 @@ class ThinkNSolve_1VC: UIViewController {
         center.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
         
         startTimer()
+        //sounds & music
+        player = thisGame.musicPlayer
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -290,6 +297,17 @@ class ThinkNSolve_1VC: UIViewController {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         textField.resignFirstResponder()
         return true
+    }
+    // MARK: Music Methods.
+    
+    @IBAction func musicVolumeDidChange(_ sender: Any) {
+        let value = self.volumeMusic.value
+        player.setVolume(value, fadeDuration: 0.0)
+    }
+    
+    @IBAction func soundsVolumeDidChange(_ sender: Any) {
+        let value = self.volumeSounds.value
+        //player.setVolume(value, fadeDuration: 0.0)
     }
     
 }

@@ -152,7 +152,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.118663"
+            timestampString = "549565314.496776"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -164,11 +164,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.118989"
+            timestampString = "549565314.497328"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -180,11 +180,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.119204"
+            timestampString = "549565314.497716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
@@ -200,7 +200,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.119411"
+            timestampString = "549565314.498073"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
@@ -212,11 +212,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.119614"
+            timestampString = "549565314.498431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
@@ -228,11 +228,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.119819"
+            timestampString = "549565314.4988149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -244,11 +244,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.120025"
+            timestampString = "549565314.499192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
@@ -264,7 +264,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.120227"
+            timestampString = "549565314.499568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -276,11 +276,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.120429"
+            timestampString = "549565314.49991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -292,17 +292,127 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Math/UI/Levels List/riddlesListVC2.swift"
-            timestampString = "549565199.120627"
+            timestampString = "549565314.500244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Math/UI/Levels/ThinkNSolve_2_VC.swift"
+            timestampString = "549651505.55901"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "checkAnswer()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Math/UI/Levels/ThinkNSolve_2_VC.swift"
+            timestampString = "549651505.559078"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
+            landmarkName = "checkAnswer()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Math/UI/Levels/riddleVC.swift"
+            timestampString = "549651505.559129"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "riddleVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Math.riddleVC.numberLabel.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
+                  moduleName = "Math"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/Levels/riddleVC.swift"
+                  timestampString = "549651505.720686"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Math.riddleVC.numberLabel.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
+                  moduleName = "Math"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/Levels/riddleVC.swift"
+                  timestampString = "549651505.722337"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Math.riddleVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Math.riddleVC"
+                  moduleName = "Math"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/Levels/riddleVC.swift"
+                  timestampString = "549651505.723954"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "1696">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Math.riddleVC.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Math.riddleVC&gt;"
+                  moduleName = "Math"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aviv.maor/Desktop/Aviv/%D7%9C%D7%99%D7%9E%D7%95%D7%93%D7%99%D7%9D/%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A1%D7%91%D7%AA%D7%90/project/math.1/myTmath/Math/Math/UI/Levels/riddleVC.swift"
+                  timestampString = "549651505.725594"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "1652">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

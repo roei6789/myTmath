@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="8P4-lw-fZb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="8P4-lw-fZb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRT-QT-V1A">
@@ -179,6 +179,8 @@
                         <outlet property="playButton" destination="R9o-vi-DS3" id="1oW-Ou-DAs"/>
                         <outlet property="pointsLabel" destination="ulw-eI-3Zp" id="1Kq-Sb-15o"/>
                         <outlet property="settingsView" destination="Ivr-l1-OTN" id="SZL-14-3tD"/>
+                        <outlet property="volumeMusic" destination="Acj-jK-6fQ" id="hGa-KG-pqf"/>
+                        <outlet property="volumeSounds" destination="Qs1-fi-Ey5" id="28c-dC-iOq"/>
                         <segue destination="MDJ-k9-Py2" kind="show" identifier="showAboutView" id="rbo-qi-gVo"/>
                         <segue destination="DFH-cp-YiU" kind="show" identifier="showAchievements" id="IKJ-2a-njM"/>
                     </connections>
@@ -200,7 +202,10 @@
                             </constraints>
                             <color key="minimumTrackTintColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="thumbTintColor" red="0.6588235294" green="0.8862745098" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="thumbTintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="musicVolumeDidChange:" destination="XjW-fh-wme" eventType="valueChanged" id="NQS-Lz-ODL"/>
+                            </connections>
                         </slider>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qs1-fi-Ey5">
                             <rect key="frame" x="18" y="69" width="120" height="30"/>
@@ -340,7 +345,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-8i-ima">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="Z4B-8i-ima">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgW-oc-IYL">
@@ -359,9 +364,9 @@
                                             <constraint firstAttribute="height" constant="500" id="6eQ-JM-eS7"/>
                                             <constraint firstAttribute="width" constant="320" id="wqa-tu-GdM"/>
                                         </constraints>
-                                        <mutableString key="text">הספר ״משעשוע לידע״ אשר ראה אור באמצע שנות ה-90 נולד במטרה לענות על הצרכים המיוחדים של פיתוח החשיבה המתמטית לילדים בגילאי 7-14. מטרת במחברת, טטיאנה מאשקוביץ׳, להוציא חוברת חידות מתמטיות נוחה לקריאה ולשימוש, אשר ניתן לנצלה בקלות ובאפקטיביות רבה בשיעורי חשבון כמו גם בשעות הפנאי של הילד.
+                                        <string key="text">הספר ״משעשוע לידע״ אשר ראה אור באמצע שנות ה-90 נולד במטרה לענות על הצרכים המיוחדים של פיתוח החשיבה המתמטית לילדים בגילאי 7-14. מטרת במחברת, טטיאנה מאשקוביץ׳, להוציא חוברת חידות מתמטיות נוחה לקריאה ולשימוש, אשר ניתן לנצלה בקלות ובאפקטיביות רבה בשיעורי חשבון כמו גם בשעות הפנאי של הילד.
 במסגרת פרויקט הגמר בלימודי תואר ראשון (B.Sc)  במחלקה להנדסת תעשיה וניהול באוניברסיטת בן -גוריון שבנגב, פיתחנו גרסא אינטראקטיבית לספר החידות ״עושים חשבון״.
-כעת, כשני עשורים לאחר צאתו לאור, נכדה של טטיאנה מאשקוביץ׳ וחבריו לצוות, מחזירים את הספר לחיים כיישומון לנייד.</mutableString>
+כעת, כשני עשורים לאחר צאתו לאור, נכדה של טטיאנה מאשקוביץ׳ וחבריו לצוות, מחזירים את הספר לחיים כיישומון לנייד.</string>
                                         <fontDescription key="fontDescription" name="Assistant-Regular" family="Assistant" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -479,7 +484,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="kQG-dE-mhg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="kQG-dE-mhg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f29-Ta-eoN">
@@ -849,7 +854,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="Vn5-jc-d31">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="Vn5-jc-d31">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YH3-16-6Ah">
@@ -1055,7 +1060,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="4WJ-fL-qtl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="4WJ-fL-qtl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1X-nd-BKO">
@@ -1253,6 +1258,8 @@
                         <outlet property="rightAnwerView" destination="yNJ-Nb-pkg" id="TNm-mB-263"/>
                         <outlet property="settingsView" destination="hfd-cG-Gef" id="wLc-RF-ssk"/>
                         <outlet property="timerLabel" destination="8VV-6L-nPo" id="HVK-nc-uIZ"/>
+                        <outlet property="volumeMusic" destination="iGx-0y-S3e" id="B9i-JT-jED"/>
+                        <outlet property="volumeSounds" destination="xbH-sJ-DTP" id="j5l-WT-oNr"/>
                         <outlet property="wrongAnswerView" destination="llD-aU-2nd" id="4TQ-n2-GaD"/>
                     </connections>
                 </viewController>
@@ -1389,6 +1396,9 @@
                             <color key="minimumTrackTintColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="thumbTintColor" red="0.6588235294" green="0.8862745098" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="musicVolumeDidChange:" destination="CeR-Nd-kYw" eventType="valueChanged" id="XGb-hF-5xF"/>
+                            </connections>
                         </slider>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xbH-sJ-DTP">
                             <rect key="frame" x="18" y="69" width="120" height="30"/>
@@ -1400,6 +1410,9 @@
                             <color key="minimumTrackTintColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="thumbTintColor" red="0.65886629389999996" green="0.8862745098" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="soundsVolumeDidChange:" destination="CeR-Nd-kYw" eventType="valueChanged" id="KiT-yh-a1W"/>
+                            </connections>
                         </slider>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מוזיקה" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6It-zF-wqc">
                             <rect key="frame" x="184" y="22" width="51" height="26"/>
@@ -1464,7 +1477,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="u2V-vX-Kup">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="u2V-vX-Kup">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ii0-qZ-qdp">
@@ -1668,6 +1681,8 @@
                         <outlet property="titleLable" destination="nf5-2F-Ucz" id="XCM-Xo-fQl"/>
                         <outlet property="titleView" destination="ld7-Mp-r8b" id="Z66-kS-see"/>
                         <outlet property="titleViewHeightConst" destination="NTl-bL-adx" id="d8T-PF-Kcp"/>
+                        <outlet property="volumeMusic" destination="pYx-bM-Ant" id="PPL-28-1rY"/>
+                        <outlet property="volumeSounds" destination="ISh-uS-c6N" id="Ayx-M1-WOJ"/>
                         <outlet property="wrongAnswerView" destination="drV-PW-WWw" id="DxO-ef-d7W"/>
                     </connections>
                 </viewController>
@@ -1808,6 +1823,9 @@
                             <color key="minimumTrackTintColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="thumbTintColor" red="0.6588235294" green="0.8862745098" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="musicVolumeDidChange:" destination="KHj-SN-7pV" eventType="valueChanged" id="Uuz-pE-2UV"/>
+                            </connections>
                         </slider>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ISh-uS-c6N">
                             <rect key="frame" x="18" y="69" width="120" height="30"/>
@@ -1819,6 +1837,9 @@
                             <color key="minimumTrackTintColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="thumbTintColor" red="0.65886629389999996" green="0.8862745098" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="soundsVolumeDidChange:" destination="KHj-SN-7pV" eventType="valueChanged" id="lR1-ri-eRl"/>
+                            </connections>
                         </slider>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מוזיקה" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIg-6R-Gz4">
                             <rect key="frame" x="184" y="22" width="51" height="26"/>
@@ -1883,8 +1904,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="gdr-ae-ne8">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="gdr-ae-ne8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameBar2" translatesAutoresizingMaskIntoConstraints="NO" id="diI-qY-Y9g">
                                 <rect key="frame" x="16.5" y="35" width="342" height="71"/>
@@ -2211,7 +2232,7 @@
                         <constraints>
                             <constraint firstItem="L8o-aM-SKx" firstAttribute="top" secondItem="qqK-It-SGB" secondAttribute="top" constant="25" id="2dr-V0-AwE"/>
                             <constraint firstItem="uc2-Dc-R9g" firstAttribute="bottom" secondItem="qqK-It-SGB" secondAttribute="bottom" id="2wJ-Ox-DHV"/>
-                            <constraint firstItem="gdr-ae-ne8" firstAttribute="top" secondItem="qqK-It-SGB" secondAttribute="top" id="8F8-ot-dWE"/>
+                            <constraint firstItem="gdr-ae-ne8" firstAttribute="top" secondItem="DJU-zu-xMy" secondAttribute="top" id="8F8-ot-dWE"/>
                             <constraint firstItem="qqK-It-SGB" firstAttribute="trailing" secondItem="gdr-ae-ne8" secondAttribute="trailing" id="AB4-bO-g6k"/>
                             <constraint firstItem="82G-JY-cE6" firstAttribute="centerX" secondItem="MyD-c0-vAf" secondAttribute="centerX" id="AYZ-Md-brw"/>
                             <constraint firstItem="JGr-Ny-osP" firstAttribute="centerX" secondItem="2fW-zw-MSo" secondAttribute="centerX" id="DaU-kl-PY1"/>
@@ -2261,6 +2282,8 @@
                         <outlet property="timerLabel" destination="My7-D8-1yq" id="Ov9-nC-oxm"/>
                         <outlet property="titleLable" destination="pRK-rk-pba" id="oj6-M9-VHl"/>
                         <outlet property="titleView" destination="cXE-j2-tLY" id="QsT-kR-lxU"/>
+                        <outlet property="volumeMusic" destination="KLc-9V-hls" id="gJI-VX-CYP"/>
+                        <outlet property="volumeSounds" destination="SAO-rg-zEz" id="gIM-To-Vp5"/>
                         <outlet property="wrongAnswerView" destination="7gW-wm-JAL" id="ri2-fQ-73d"/>
                     </connections>
                 </viewController>
@@ -2394,6 +2417,9 @@
                             <color key="minimumTrackTintColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="thumbTintColor" red="0.6588235294117647" green="0.88627450980392153" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="musicVolumeDidChange:" destination="6Qp-1U-N1A" eventType="valueChanged" id="e6H-Bv-R6q"/>
+                            </connections>
                         </slider>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SAO-rg-zEz">
                             <rect key="frame" x="18" y="69" width="120" height="30"/>
@@ -2405,6 +2431,9 @@
                             <color key="minimumTrackTintColor" red="0.18039215689999999" green="0.18039215689999999" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="thumbTintColor" red="0.65886629391339868" green="0.88627450980392153" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="soundsVolumeDidChange:" destination="6Qp-1U-N1A" eventType="valueChanged" id="9Wm-U4-G3c"/>
+                            </connections>
                         </slider>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="מוזיקה" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hT-dp-o6m">
                             <rect key="frame" x="184" y="22" width="51" height="26"/>
@@ -2458,7 +2487,7 @@
                     <viewLayoutGuide key="safeArea" id="STe-NN-h4a"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1569" y="1224"/>
+            <point key="canvasLocation" x="1568.8" y="1223.8380809595203"/>
         </scene>
         <!--Wrongt AnswerVC-->
         <scene sceneID="Sc5-Ph-bMn">
@@ -2814,7 +2843,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 6" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-5y-FFc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_background" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-5y-FFc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5o-5J-dcg">
@@ -2987,7 +3016,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Group 6" width="375" height="649"/>
         <image name="Oval_riddels" width="83" height="83"/>
         <image name="Oval_score" width="31" height="31"/>
         <image name="Settings" width="512" height="512"/>
@@ -2995,6 +3023,7 @@
         <image name="World1" width="180" height="180"/>
         <image name="World2" width="360" height="368"/>
         <image name="World3" width="224" height="224"/>
+        <image name="app_background" width="374" height="639"/>
         <image name="backButton" width="60" height="21"/>
         <image name="background_clouds" width="150" height="150"/>
         <image name="book_front" width="129" height="159"/>

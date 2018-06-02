@@ -19,6 +19,7 @@
 		8025066E20385A3F009E6355 /* worldsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8025066D20385A3F009E6355 /* worldsCollectionViewCell.swift */; };
 		802506702038609A009E6355 /* WorldsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8025066F2038609A009E6355 /* WorldsVC.swift */; };
 		80278CF6204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80278CF5204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift */; };
+		802B6A6520C2EE3000A92CD4 /* The xx Intro.aac in Resources */ = {isa = PBXBuildFile; fileRef = 802B6A6420C2EE3000A92CD4 /* The xx Intro.aac */; };
 		8068494820388FF400BD0482 /* riddleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068494720388FF400BD0482 /* riddleVC.swift */; };
 		8068494A2038933C00BD0482 /* riddlesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806849492038933C00BD0482 /* riddlesCell.swift */; };
 		80A6C7782046F3E0007EF44E /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A6C7772046F3E0007EF44E /* HomePageVC.swift */; };
@@ -80,6 +81,7 @@
 		8025066D20385A3F009E6355 /* worldsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = worldsCollectionViewCell.swift; sourceTree = "<group>"; };
 		8025066F2038609A009E6355 /* WorldsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldsVC.swift; sourceTree = "<group>"; };
 		80278CF5204EFADB00ECBE6A /* RiddlesCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddlesCollectionViewCell2.swift; sourceTree = "<group>"; };
+		802B6A6420C2EE3000A92CD4 /* The xx Intro.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = "The xx Intro.aac"; sourceTree = "<group>"; };
 		8068494720388FF400BD0482 /* riddleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddleVC.swift; sourceTree = "<group>"; };
 		806849492038933C00BD0482 /* riddlesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = riddlesCell.swift; sourceTree = "<group>"; };
 		80A6C7772046F3E0007EF44E /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				8025064620385940009E6355 /* Assets.xcassets */,
 				8025064820385940009E6355 /* LaunchScreen.storyboard */,
 				8025064B20385940009E6355 /* Info.plist */,
+				802B6A6420C2EE3000A92CD4 /* The xx Intro.aac */,
 				80ABBD3D2068204900CFC945 /* logic */,
 				80D4468E2052C25D000B264B /* UI */,
 			);
@@ -368,6 +371,7 @@
 				80B596CF20A47E9C004FEE79 /* Assistant-ExtraBold.ttf in Resources */,
 				8025064A20385940009E6355 /* LaunchScreen.storyboard in Resources */,
 				8025064720385940009E6355 /* Assets.xcassets in Resources */,
+				802B6A6520C2EE3000A92CD4 /* The xx Intro.aac in Resources */,
 				80B596D320A47E9C004FEE79 /* Assistant-SemiBold.ttf in Resources */,
 				80B596D120A47E9C004FEE79 /* Assistant-Regular.ttf in Resources */,
 				8025064520385940009E6355 /* Main.storyboard in Resources */,
