@@ -234,7 +234,7 @@ class Q_create{
         let QTS_2_11 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",
             Number: 11,
-            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. " + "\n" + " הוסף סוגריים לפי הצורך" ,
+            Explantion:  "על כל קו שים אחד מהסימנים + , - , x , : " + "\n" + " הוסף סוגריים לפי הצורך" ,
             Answer_Correct: 1,
             Attempts: 0,
             Num_1: "1",
@@ -251,7 +251,7 @@ class Q_create{
         let QTS_2_12 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",
             Number: 12,
-            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. " + "\n" + " הוסף סוגריים לפי הצורך" ,
+            Explantion:  "על כל קו שים אחד מהסימנים + , - , x , : " + "\n" + " הוסף סוגריים לפי הצורך" ,
             Answer_Correct: 2,
             Attempts: 0,
             Num_1: "1",
@@ -268,7 +268,7 @@ class Q_create{
         let QTS_2_13 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",
             Number: 13,
-            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. " + "\n" + " הוסף סוגריים לפי הצורך" ,
+            Explantion:  "על כל קו שים אחד מהסימנים + , - , x , : " + "\n" + " הוסף סוגריים לפי הצורך" ,
             Answer_Correct: 3,
             Attempts: 0,
             Num_1: "1",
@@ -285,7 +285,7 @@ class Q_create{
         let QTS_2_14 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",
             Number: 14,
-            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. " + "\n" + " הוסף סוגריים לפי הצורך" ,
+            Explantion:  "על כל קו שים אחד מהסימנים + , - , x , : " + "\n" + " הוסף סוגריים לפי הצורך" ,
             Answer_Correct: 4,
             Attempts: 0,
             Num_1: "1",
@@ -302,7 +302,7 @@ class Q_create{
         let QTS_2_15 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",
             Number: 15,
-            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. " + "\n" + " הוסף סוגריים לפי הצורך" ,
+            Explantion:  "על כל קו שים אחד מהסימנים + , - , x , : " + "\n" + " הוסף סוגריים לפי הצורך" ,
             Answer_Correct: 5,
             Attempts: 0,
             Num_1: "4",
@@ -319,7 +319,7 @@ class Q_create{
         let QTS_2_16 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",
             Number: 16,
-            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. " + "\n" + " הוסף סוגריים לפי הצורך" ,
+            Explantion:  "על כל קו שים אחד מהסימנים + , - , x , : " + "\n" + " הוסף סוגריים לפי הצורך" ,
             Answer_Correct: 6,
             Attempts: 0,
             Num_1: "1",
@@ -335,7 +335,7 @@ class Q_create{
         let QTS_2_17 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",
             Number: 17,
-            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. " + "\n" + " הוסף סוגריים לפי הצורך" ,
+            Explantion:  "על כל קו שים אחד מהסימנים + , - , x , : " + "\n" + " הוסף סוגריים לפי הצורך" ,
             Answer_Correct: 1,
             Attempts: 0,
             Num_1: "4",
@@ -351,7 +351,7 @@ class Q_create{
         let QTS_2_18 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",
             Number: 18,
-            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. " + "\n" + " הוסף סוגריים לפי הצורך" ,
+            Explantion:  "על כל קו שים אחד מהסימנים + , - , x , : " + "\n" + " הוסף סוגריים לפי הצורך" ,
             Answer_Correct: 2,
             Attempts: 0,
             Num_1: "4",
@@ -367,7 +367,7 @@ class Q_create{
         let QTS_2_19 = Question_Thinks_solve_2.init(
             Title: "בנה את המספר",
             Number: 19,
-            Explantion:  "על כל קו שים אחד מהסימנים +,-,x,:. " + "\n" + " הוסף סוגריים לפי הצורך" ,
+            Explantion:  "על כל קו שים אחד מהסימנים + , - , x , : " + "\n" + " הוסף סוגריים לפי הצורך" ,
             Answer_Correct: 3,
             Attempts: 0,
             Num_1: "4",

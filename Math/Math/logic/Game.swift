@@ -19,30 +19,10 @@ class Game {
     
     //sounds & music
     var musicPlayer : AVAudioPlayer = AVAudioPlayer()
-    
+    var musicPlayerCorrect : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayerIncorrect : AVAudioPlayer = AVAudioPlayer()
     
     init(){
-//        //if there is a game stored in mobile data
-////        let userDefaults = UserDefaults.standard
-////            let decoded  = userDefaults.object(forKey: "WorldsList") as! Data
-////            let decodedWorldsList = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Worlds]
-////        if (decodedWorldsList.count > 0) {   //(decodedWorldsList != nil)
-////            //self.Player = savedPlayer
-////            self.Player = User.init(First_name: "", Last_name: "", User_name: "")
-////            self.WorldsList = decodedWorldsList
-////        }
-//        if /*let savedPlayer = UserDefaults.standard.object(forKey: "User") as? User,*/
-//            let savedWorlds = UserDefaults.standard.array(forKey: "WorldsList") as? [Worlds]{
-//            //self.Player = savedPlayer
-//             self.Player = User.init(First_name: "", Last_name: "", User_name: "")
-//            self.WorldsList = savedWorlds
-//        }
-//        else {
-//            //intialize game
-//           self.Player = User.init(First_name: "", Last_name: "", User_name: "")
-//            //call intialize method
-//            initWorlds()
-//        }
         
         //intialize game
         self.Player = User.init(First_name: "", Last_name: "", User_name: "")
@@ -53,22 +33,23 @@ class Game {
         //music & sounds
         //sounds & music
         do {
-            let audioPath = Bundle.main.path(forResource: "The xx Intro", ofType: "aac")
-            try musicPlayer = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath!) as URL)
-            
-            //            let audioSession = AVAudioSession.sharedInstance()
-            //            do{
-            //                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
-            //            }
-            //            catch{
-            //
-            //            }
+            let audioPath1 = Bundle.main.path(forResource: "appMusic", ofType: "mp3")
+            try musicPlayer = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath1!) as URL)
+            let audioPath2 = Bundle.main.path(forResource: "correctAnswer", ofType: "mp3")
+            try musicPlayerCorrect = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath2!) as URL)
+            let audioPath3 = Bundle.main.path(forResource: "incorrectAnswer", ofType: "mp3")
+            try musicPlayerIncorrect = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath3!) as URL)
         }
         catch{
             print("could not find music")
         }
+
         musicPlayer.prepareToPlay()
+        musicPlayerCorrect.prepareToPlay()
+        musicPlayerIncorrect.prepareToPlay()
         musicPlayer.setVolume(0.5 , fadeDuration: 0.5)
+        musicPlayerCorrect.setVolume(0.5 , fadeDuration: 0.0)
+        musicPlayerIncorrect.setVolume(0.5 , fadeDuration: 0.0)
         musicPlayer.numberOfLoops = -1
    }//init
     

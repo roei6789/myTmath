@@ -27,6 +27,8 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     @IBOutlet weak var gameBarImage: UIImageView!
     @IBOutlet weak var gameBarView: UIView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var questionNumberLabel: UILabel!
+     @IBOutlet weak var giftImg: UIImageView!
     
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLable: UILabel!
@@ -57,7 +59,9 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     var time = 0
     var timer = Timer()
     //sounds & music
-    var player : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayer : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayerCorrect : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayerIncorrect : AVAudioPlayer = AVAudioPlayer()
     
     //initiolize variables
     let thisGame = Game.sharedInstance
@@ -95,10 +99,10 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         //initiolize variables
         selectedWorld = thisGame.SelectedWorld
         SelectedQuestion  = thisGame.SelectedQuestion
-//        questionNumber = (thisQuestion?.Number)!
+        thisQuestion = thisGame.getQuestion(world: selectedWorld, question: SelectedQuestion) as? Question_Thinks_solve_2 //need to check for nil
+        questionNumber = SelectedQuestion + 1 //(thisQuestion?.Number)!
 //        correctAnwer = (thisQuestion?.Answer_Correct)!
 //        attemps = (thisQuestion?.Attempts)!
-        thisQuestion = thisGame.getQuestion(world: selectedWorld, question: SelectedQuestion) as? Question_Thinks_solve_2 //need to check for nil
         //Think N Solve 2 var initiolize
         self.Num_1 = (thisQuestion?.Num_1)!
         self.Num_2 = (thisQuestion?.Num_2)!
@@ -127,7 +131,10 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         //question data
         self.titleLable.text  = thisQuestion?.Title
         self.questionLable.text = thisQuestion?.Explanation
-        
+        self.questionNumberLabel.text = String(questionNumber)
+        if isCorrect {
+            self.giftImg.image = UIImage(named: "gift_green")
+        }
         self.numberLabel_1.text = Num_1
         self.numberLabel_2.text = Num_2
         self.numberLabel_3.text = Num_3
@@ -137,12 +144,15 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         pickerView_1.accessibilityLabel = "1"
         pickerView_2.accessibilityLabel = "2"
         pickerView_3.accessibilityLabel = "3"
+        
         //brackets buttons
         bracketColor = leftBracket.textColor
 
         startTimer()
         //sounds & music
-        player = thisGame.musicPlayer
+        musicPlayer = thisGame.musicPlayer
+        musicPlayerCorrect = thisGame.musicPlayerCorrect
+        musicPlayerIncorrect = thisGame.musicPlayerIncorrect
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -170,10 +180,12 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
                 //correct answer!!
                 correctAnswer()
                 //animate in
+                musicPlayerCorrect.play()
                 animateIn(animateView: rightAnwerView)
             }
             else{
                 //Incorrect answer
+                musicPlayerIncorrect.play()
                 animateIn(animateView: wrongAnswerView)
             }
         }
@@ -235,7 +247,6 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         restoreUIFromPopup()
         startTimer()
     }
-    
      // MARK: onClick Methods.
     @IBAction func onClickField(_ sender: Any) {
         answerView.isHidden = false
@@ -425,6 +436,9 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         timer.invalidate()
         time = 0
     }
+    func resumeTimer () {
+        timer.fire()
+    }
     
     @objc func TimerAddSecond(){
         time += 1
@@ -444,12 +458,13 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
     
     @IBAction func musicVolumeDidChange(_ sender: Any) {
         let value = self.volumeMusic.value
-        player.setVolume(value, fadeDuration: 0.0)
+        musicPlayer.setVolume(value, fadeDuration: 0.0)
     }
     
     @IBAction func soundsVolumeDidChange(_ sender: Any) {
         let value = self.volumeSounds.value
-        //player.setVolume(value, fadeDuration: 0.0)
+        musicPlayerCorrect.setVolume(value, fadeDuration: 0.0)
+        musicPlayerIncorrect.setVolume(value, fadeDuration: 0.0)
     }
 
 }

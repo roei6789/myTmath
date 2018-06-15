@@ -24,7 +24,7 @@ class HomePageVC: UIViewController {
     @IBOutlet weak var volumeSounds: UISlider!
     
     //sounds & music
-    var player : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayer : AVAudioPlayer = AVAudioPlayer()
     
     let thisGame = Game.sharedInstance
     
@@ -39,8 +39,8 @@ class HomePageVC: UIViewController {
        // getUserData()
         
        //sounds & music
-        player = thisGame.musicPlayer
-        player.play()
+        musicPlayer = thisGame.musicPlayer
+        musicPlayer.play()
         
         
     }
@@ -104,7 +104,7 @@ class HomePageVC: UIViewController {
 
     @IBAction func musicVolumeDidChange(_ sender: Any) {
         let value = self.volumeMusic.value
-        player.setVolume(value, fadeDuration: 0.0)
+        musicPlayer.setVolume(value, fadeDuration: 0.0)
     }
     
     @IBAction func soundsVolumeDidChange(_ sender: Any) {

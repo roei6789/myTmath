@@ -20,9 +20,11 @@ class riddleVC: UIViewController {
     @IBOutlet var wrongAnswerView: UIView!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var giftImg: UIImageView!
     
     @IBOutlet weak var gameBarImage: UIImageView!
     @IBOutlet weak var gameBarView: UIView!
+    @IBOutlet weak var questionNumberLabel: UILabel!
     
     @IBOutlet weak var questionView: UIView!
     @IBOutlet weak var riddleTitle: UILabel!
@@ -55,7 +57,9 @@ class riddleVC: UIViewController {
     //var backFromPopup = false
     
     //sounds & music
-    var player : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayer : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayerCorrect : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayerIncorrect : AVAudioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,10 +67,11 @@ class riddleVC: UIViewController {
         //initiolize variables
         selectedWorld = thisGame.SelectedWorld
         SelectedQuestion  = thisGame.SelectedQuestion
-//        questionNumber = (thisQuestion?.Number)!
-//        correctAnwer = (thisQuestion?.Answer_Correct)!
-        
         thisQuestion = thisGame.getQuestion(world: selectedWorld, question: SelectedQuestion) as? Question_Geometry //need to check for nil
+        questionNumber = (thisQuestion?.Number)!
+        isCorrect = (thisQuestion?.isCurrect)!
+        //        correctAnwer = (thisQuestion?.Answer_Correct)!
+        //        attemps = (thisQuestion?.Attempts)!
         //attemps = thisQuestion!.Attempts
         
         //UI initiolize
@@ -87,6 +92,11 @@ class riddleVC: UIViewController {
         self.riddleTitle.text = thisQuestion?.Title
         self.riddleQuestion.text = thisQuestion?.Explanation
         self.riddleIMG.image = UIImage(named : (thisQuestion?.Picture)!)
+        self.questionNumberLabel.text = String(questionNumber)
+        
+        if isCorrect {
+            self.giftImg.image = UIImage(named: "gift_green")
+        }
         
         //abserver for keyboard
         let center : NotificationCenter = NotificationCenter.default
@@ -96,7 +106,9 @@ class riddleVC: UIViewController {
 
         startTimer()
         //sounds & music
-        player = thisGame.musicPlayer
+        musicPlayer = thisGame.musicPlayer
+        musicPlayerCorrect = thisGame.musicPlayerCorrect
+        musicPlayerIncorrect = thisGame.musicPlayerIncorrect
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -139,10 +151,12 @@ class riddleVC: UIViewController {
                 //update question
                 correctAnswer()
                 //animate in
+                musicPlayerCorrect.play()
                 animateIn(animateView: rightAnwerView)
             }
             else{
                 //Incorrect answer
+                musicPlayerIncorrect.play()
                 wrongAnswer()
             }
         }
@@ -198,7 +212,7 @@ class riddleVC: UIViewController {
         //animate out
         animateOut(animateView: wrongAnswerView)
         restoreUIFromPopup()
-        startTimer()
+        resumeTimer()
     }
     
     //animate  view in
@@ -296,12 +310,13 @@ class riddleVC: UIViewController {
     
     @IBAction func musicVolumeDidChange(_ sender: Any) {
         let value = self.volumeMusic.value
-        player.setVolume(value, fadeDuration: 0.0)
+        musicPlayer.setVolume(value, fadeDuration: 0.0)
     }
     
     @IBAction func soundsVolumeDidChange(_ sender: Any) {
         let value = self.volumeSounds.value
-        //player.setVolume(value, fadeDuration: 0.0)
+        musicPlayerCorrect.setVolume(value, fadeDuration: 0.0)
+        musicPlayerIncorrect.setVolume(value, fadeDuration: 0.0)
     }
     
     // MARK: Timer Methods.
@@ -311,6 +326,10 @@ class riddleVC: UIViewController {
     
     func pauseTimer() {
         timer.invalidate()
+    }
+    
+    func resumeTimer () {
+        timer.fire()
     }
     
     func stopTimer() {

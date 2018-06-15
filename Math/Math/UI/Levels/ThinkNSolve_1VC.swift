@@ -22,7 +22,9 @@ class ThinkNSolve_1VC: UIViewController {
     
     @IBOutlet weak var gameBarImage: UIImageView!
     @IBOutlet weak var gameBarView: UIView!
+    @IBOutlet weak var questionNumberLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+     @IBOutlet weak var giftImg: UIImageView!
     
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLable: UILabel!
@@ -53,7 +55,9 @@ class ThinkNSolve_1VC: UIViewController {
     var isCorrect = false
     
     //sounds & music
-    var player : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayer : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayerCorrect : AVAudioPlayer = AVAudioPlayer()
+    var musicPlayerIncorrect : AVAudioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +65,11 @@ class ThinkNSolve_1VC: UIViewController {
         //initiolize variables
         selectedWorld = thisGame.SelectedWorld
         SelectedQuestion  = thisGame.SelectedQuestion
-//        questionNumber = (thisQuestion?.Number)!
-//        correctAnwer = (thisQuestion?.Answer_Correct)!
-//        attemps = (thisQuestion?.Attempts)!
         thisQuestion = thisGame.getQuestion(world: selectedWorld, question: SelectedQuestion) as? Question_Thinks_solve //need to check for nil
+        questionNumber = SelectedQuestion + 1 //(thisQuestion?.Number)!
+        isCorrect = (thisQuestion?.isCurrect)!
+        //        correctAnwer = (thisQuestion?.Answer_Correct)!
+        //        attemps = (thisQuestion?.Attempts)!
         
         //UI initiolize
         //navigation bar
@@ -85,6 +90,10 @@ class ThinkNSolve_1VC: UIViewController {
         self.titleLable.text  = thisQuestion?.Title
         self.questionLable.text = thisQuestion?.Explanation
         self.riddle.text = (thisQuestion?.content)! + "= "
+        self.questionNumberLabel.text = String(questionNumber)
+        if isCorrect {
+            self.giftImg.image = UIImage(named: "gift_green")
+        }
         
         //abserver for keyboard
         let center : NotificationCenter = NotificationCenter.default
@@ -94,7 +103,9 @@ class ThinkNSolve_1VC: UIViewController {
         
         startTimer()
         //sounds & music
-        player = thisGame.musicPlayer
+        musicPlayer = thisGame.musicPlayer
+        musicPlayerCorrect = thisGame.musicPlayerCorrect
+        musicPlayerIncorrect = thisGame.musicPlayerIncorrect
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -114,10 +125,12 @@ class ThinkNSolve_1VC: UIViewController {
                 //correct answer!!
                 correctAnswer()
                 //animate in
+                musicPlayerCorrect.play()
                 animateIn(animateView: rightAnwerView)
             }
             else{
                 //Incorrect answer
+                musicPlayerIncorrect.play()
                  wrongAnswer()
             }
         }
@@ -215,7 +228,6 @@ class ThinkNSolve_1VC: UIViewController {
         restoreUIFromPopup()
         startTimer()
     }
-    
     // MARK: Animation Methods.
     //animate  view in
     func animateIn( animateView : UIView){
@@ -255,6 +267,10 @@ class ThinkNSolve_1VC: UIViewController {
     func stopTimer() {
         timer.invalidate()
         time = 0
+    }
+    
+    func resumeTimer () {
+        timer.fire()
     }
     
     @objc func TimerAddSecond(){
@@ -302,12 +318,13 @@ class ThinkNSolve_1VC: UIViewController {
     
     @IBAction func musicVolumeDidChange(_ sender: Any) {
         let value = self.volumeMusic.value
-        player.setVolume(value, fadeDuration: 0.0)
+        musicPlayer.setVolume(value, fadeDuration: 0.0)
     }
     
     @IBAction func soundsVolumeDidChange(_ sender: Any) {
         let value = self.volumeSounds.value
-        //player.setVolume(value, fadeDuration: 0.0)
+        musicPlayerCorrect.setVolume(value, fadeDuration: 0.0)
+        musicPlayerIncorrect.setVolume(value, fadeDuration: 0.0)
     }
     
 }
