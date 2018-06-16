@@ -291,7 +291,7 @@ class ThinkNSolve_2_VC: UIViewController, UIPickerViewDelegate, UIPickerViewData
         toCheck.replacingOccurrences(of: "X", with: "*")
         toCheck.replacingOccurrences(of: ":", with: "/")
         //now - if toCheck == answerLable.text! { return true }
-        
+         
         return false
     }
     

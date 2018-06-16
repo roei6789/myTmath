@@ -10,6 +10,7 @@ import UIKit
 
 class WorldsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate  {
 
+    @IBOutlet weak var myCollection: UICollectionView!
     @IBOutlet weak var pointsLabel: UIButton!
     
     
@@ -31,6 +32,7 @@ class WorldsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     override func viewDidAppear(_ animated: Bool) {
         let points = thisGame.getUserPoints()
         pointsLabel.setTitle(String(points), for: pointsLabel.state)
+        self.myCollection.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
